@@ -1,4 +1,4 @@
-# projet-web-2021-Charles-Gabriel-Antoine
+# projet-web-2021-Slickchat
 
 Équipe : 
 
