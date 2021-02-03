@@ -1,4 +1,4 @@
-# projet-web-2021-Slickchat
+# projet-web-2021-BeaterShop
 
 Équipe : 
 
