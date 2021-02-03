@@ -1,4 +1,4 @@
-# projet-web-2021-BeaterShop
+# projet-web-2021-BeaterQuebec
 
 Équipe : 
 
