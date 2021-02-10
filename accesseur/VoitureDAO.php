@@ -1,5 +1,6 @@
 <?php
 require "BaseDeDonnees.php";
+require CHEMIN_MODELE . "Voiture.php";
 
 class VoitureDAO{
   public static function lireVoiture($id){
@@ -10,7 +11,7 @@ class VoitureDAO{
     $requeteListeVoitures->execute();
     $voiture = $requeteListeVoitures->fetch();
     
-    return $voiture;
+    return new Voiture($voiture);
   }
 
   public static function listerVoiture(){
@@ -19,8 +20,9 @@ class VoitureDAO{
     $requeteListeVoitures = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_LISTE_VOITURE);
     $requeteListeVoitures->execute();
     $listeVoitures = $requeteListeVoitures->fetchAll();
-
-    return $listeVoitures;
+      
+    foreach($listeVoitures as $voiture) $voitures[] = new Voiture($voiture);
+    return $voitures;
   }
 
   public static function ajouterVoiture($voiture){
@@ -96,8 +98,13 @@ class VoitureDAO{
     $requeteResultatRecherche = BaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE);
     $requeteResultatRecherche->execute();
     $listResultatRecherche = $requeteResultatRecherche->fetchAll();
-
-    return $listResultatRecherche;
+      
+    if (!empty($listResultatRecherche)){
+        foreach($listResultatRecherche as $resultat) $resultats[] = new Voiture($resultat);
+        return $resultats;
+    }else{
+        return null;
+    }
   }
 
   public static function lireRechercheAvance($marque, $modele, $anneeMin, $anneeMax, $prixMax, $kilometragesMax){
@@ -135,7 +142,12 @@ class VoitureDAO{
     $requeteResultatRecherche->execute();
     $listResultatRecherche = $requeteResultatRecherche->fetchAll();
 
-    return $listResultatRecherche;
+    if (!empty($listResultatRecherche)){
+        foreach($listResultatRecherche as $resultat) $resultats[] = new Voiture($resultat);
+        return $resultats;
+    }else{
+        return null;
+    }
   }
 
   /*
@@ -159,5 +171,16 @@ class VoitureDAO{
     return $statistiquesContenu;
   }
   */
+}
+
+function formater($texte)
+{
+    $texte = html_entity_decode($texte,ENT_COMPAT,'UTF-8');
+    $texte = htmlentities($texte,ENT_COMPAT,'ISO-8859-1');
+    
+    $newText = urldecode($texte);
+    
+    return $newText;
+
 }
 ?>

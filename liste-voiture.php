@@ -10,7 +10,6 @@ include "getVisiteurInfos.php";
 
 <!--<a class="boutonThemeMenu" href="test-excel.php" download="voitures.xlsx">Exportation vers un fichier Excel</a>-->
 
-
 <div class="listeVoitureContenant">
 
 <form class="formRechercheAvance" action="resultatRechercheAvance.php" method="post" enctype="multipart/form-data">
@@ -60,16 +59,16 @@ include "getVisiteurInfos.php";
 ?>
         
         <div class="itemListeVoiture">
-            <a class="lienListeVoiture" href="voiture.php?id=<?= $voiture["id"];?>">
+            <a class="lienListeVoiture" href="voiture.php?voiture=<?= $voiture->id;?>">
                 <li class="voitureListeVoiture">
                     <?php 
-                        if(empty($voiture["image"])){echo "<img src='images/no-image-icon-0.jpg' alt='Miniature' class='imageListeVoiture'></img>";}else{echo "<img src='images/".$voiture['image']."' alt='Miniature' class='imageListeVoiture'></img>";} 
+                        if(empty(formater($voiture->image))){echo "<img src='images/no-image-icon-0.jpg' alt='Miniature' class='imageListeVoiture'></img>";}else{echo "<img src='images/".formater($voiture->image)."' alt='Miniature' class='imageListeVoiture'></img>";} 
                     ?>
-                    <h3><?= $voiture["marque"]; ?> <?= $voiture["modele"]; ?></h3>
+                    <h3><?= formater($voiture->marque); ?> <?= formater($voiture->modele); ?></h3>
                     <br>
-                    <p class="descriptionListeVoiture">Prix : <span style="color:#37A864;"$>$<?= $voiture["prix"]; ?></span></p>
+                    <p class="descriptionListeVoiture">Prix : <span style="color:#37A864;"$>$<?= formater($voiture->prix); ?></span></p>
                     <br>
-                    <p class="descriptionListeVoiture">Kilométrages : <?= $voiture["kilometrages"]; ?> km</p>
+                    <p class="descriptionListeVoiture">Kilométrages : <?= formater($voiture->kilometrages); ?> km</p>
                 </li>
             </a>
         </div>

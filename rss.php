@@ -17,9 +17,9 @@ $listVoiture = VoitureDAO::listerVoiture();
     <channel>
         <title>Liste des meilleures Voiture de rally de Groupe B</title>
         <atom:link href="http://localhost/journal/feed/" rel="self" type="application/rss+xml" />
-        <link>http://localhost/ProjetListPhp/projet-serveur-web-2020-CharlesC1337/</link>
-        <description>Les meilleurs Voiture de rally de Group B</description>
-        <lastBuildDate>Mon, 18 Mar 2019 14:27:41 +0000</lastBuildDate>
+        <link>http://localhost/ProjetWeb/</link>
+        <description>Les Beaters du Québec</description>
+        <lastBuildDate>Mon, 18 Jan 2021 14:27:41 +0000</lastBuildDate>
         <language>fr-CA</language>
         <sy:updatePeriod> hourly</sy:updatePeriod>
         <sy:updateFrequency>1</sy:updateFrequency>
@@ -31,13 +31,13 @@ $listVoiture = VoitureDAO::listerVoiture();
 	?>
 
 	<item>
-		<title><?=$voiture['marque']?></title>
-		<link>http://localhost/ProjetListPhp/projet-serveur-web-2020-CharlesC1337/voiture.php?id=<?=$voiture['id']?></link>
+		<title><?=formater($voiture->marque)?></title>
+		<link>http://localhost/ProjetWeb/voiture.php?id=<?=$voiture->id?></link>
 		<pubDate>Mon, 18 Mar 2019 14:27:41 +0000</pubDate>
 		<category><![CDATA[Voiture]]></category>
-		<guid isPermaLink="false">http://localhost/ProjetListPhp/projet-serveur-web-2020-CharlesC1337/voiture.php?id=<?=$voiture['id']?></guid>
-		<description><![CDATA[<?=$voiture['modele']; ?>]]></description>
-		<content:encoded><![CDATA[<?=$voiture['annee']; ?>]]></content:encoded>
+		<guid isPermaLink="false">http://localhost/ProjetWeb/voiture.php?voiture=<?=$voiture->id?></guid>
+		<description><![CDATA[<?=formater($voiture->modele); ?>]]></description>
+		<content:encoded><![CDATA[<?=formater($voiture->annee); ?>]]></content:encoded>
 	</item>
 
 	<?php

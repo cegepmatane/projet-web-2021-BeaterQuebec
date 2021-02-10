@@ -10,32 +10,28 @@ $listVoiture = VoitureDAO::listerVoiture();
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
 
     <url>
-        <loc>http://localhost/ProjetListPhp/projet-serveur-web-2020-CharlesC1337/index.php</loc>
-        <lastmod>2019-03-23</lastmod>
+        <loc>http://localhost/ProjetWeb/index.php</loc>
+        <lastmod>2021-01-18</lastmod>
     </url>
     <url>
-        <loc>http://localhost/ProjetListPhp/projet-serveur-web-2020-CharlesC1337/liste-voiture.php</loc>
-        <lastmod>2019-03-23</lastmod>
+        <loc>http://localhost/ProjetWeb/liste-voiture.php</loc>
+        <lastmod>2021-01-18</lastmod>
     </url>
     <url>
-        <loc>http://localhost/ProjetListPhp/projet-serveur-web-2020-CharlesC1337/membre.php</loc>
-        <lastmod>2019-03-23</lastmod>
+        <loc>http://localhost/ProjetWeb/membre.php</loc>
+        <lastmod>2021-01-18</lastmod>
     </url>
     <url>
-        <loc>http://localhost/ProjetListPhp/projet-serveur-web-2020-CharlesC1337/inscription.php</loc>
-        <lastmod>2019-03-23</lastmod>
-    </url>
-    <url>
-        <loc>http://localhost/ProjetListPhp/projet-serveur-web-2020-CharlesC1337/recherche-avance.php</loc>
-        <lastmod>2019-03-23</lastmod>
+        <loc>http://localhost/ProjetWeb/inscription.php</loc>
+        <lastmod>2021-01-18</lastmod>
     </url>
     <?php 
         foreach($listVoiture as $voiture)
         {
     ?>
     <url>
-        <loc>http://localhost/ProjetListPhp/projet-serveur-web-2020-CharlesC1337/voiture.php?id=<?=$voiture['id']?></loc>
-        <lastmod>2019-03-23</lastmod>
+        <loc>http://localhost/ProjetWeb/voiture.php?voiture=<?=$voiture->id?></loc>
+        <lastmod>2021-01-18</lastmod>
     </url>  
     <?php 
         }

@@ -28,32 +28,32 @@
 		
 			<div class="champs">
 				<label for="marque">Marque *</label>
-				<input type="text" name="marque" id="marque" value="<?php echo $voiture['marque']?>" required/>			
+				<input type="text" name="marque" id="marque" value="<?php echo formater($voiture->marque)?>" required/>			
 			</div>
 		
 			<div class="champs">
 				<label for="modele">Modèle *</label>
-				<input type="text" name="modele" id="modele" value="<?php echo $voiture['modele']?>" required/>			
+				<input type="text" name="modele" id="modele" value="<?php echo formater($voiture->modele)?>" required/>			
 			</div>
 			
 			<div class="champs">
 				<label for="annee">Année de sortie *</label>
-				<input type="text" name="annee" id="annee" value="<?php echo $voiture['annee']?>" required/>			
+				<input type="text" name="annee" id="annee" value="<?php echo formater($voiture->annee)?>" required/>			
 			</div>	
 			
 			<div class="champs">
 				<label for="description">Description</label>
-				<textarea name="description" id="description"><?=$voiture['description']?></textarea>			
+				<textarea name="description" id="description"><?=formater($voiture->description)?></textarea>			
 			</div>	
     
             <div class="champs">
 				<label for="prix">Prix *</label>
-				<input type="text" name="prix" id="prix" value="<?php echo $voiture['prix']?>" required/>			
+				<input type="text" name="prix" id="prix" value="<?php echo formater($voiture->prix)?>" required/>			
 			</div>	
             
             <div class="champs">
 				<label for="kilometrages">Kilométrages *</label>
-				<input type="text" name="kilometrages" id="kilometrages" value="<?php echo $voiture['kilometrages']?>" required/>			
+				<input type="text" name="kilometrages" id="kilometrages" value="<?php echo formater($voiture->kilometrages)?>" required/>			
 			</div>	
 			
 			<div class="champs">
@@ -62,7 +62,7 @@
 			</div>
 			
 			<input type="submit" value="Enregistrer">
-			<input type="hidden" name="id" value="<?=$voiture['id']?>"/>
+			<input type="hidden" name="id" value="<?=$voiture->id?>"/>
 		</form>
 	
 	</section>

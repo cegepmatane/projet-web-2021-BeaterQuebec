@@ -30,11 +30,11 @@ $listVoiture = VoitureDAO::listerVoiture();
 			{
 		?>
 				<div class="recordPanneauAdministration">
-					<?php echo $voiture['marque']; ?> <?php echo $voiture['modele']; ?>
-					<a class="lienPanneauAdministration" style="float: right; margin-left:1rem;" href="modifier-voiture.php?voiture=<?php echo $voiture['id']; ?>" title="">
+					<?php echo formater($voiture->marque); ?> <?php echo formater($voiture->modele); ?>
+					<a class="lienPanneauAdministration" style="float: right; margin-left:1rem;" href="modifier-voiture.php?voiture=<?php echo $voiture->id; ?>" title="">
 						Modifier
 					</a>
-					<a class="lienPanneauAdministration" style="float: right;" href="supprimer-voiture.php?voiture=<?php echo $voiture['id']; ?>" title="">
+					<a class="lienPanneauAdministration" style="float: right;" href="supprimer-voiture.php?voiture=<?php echo $voiture->id; ?>" title="">
 						Supprimer
 					</a>
 				</div>		

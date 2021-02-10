@@ -1,6 +1,7 @@
 <?php
 require "../configuration.php";
 require CHEMIN_ACCESSEUR . "VoitureDAO.php";
+include_once "../modele/Voiture.php";
 
 $repertoireImage = $_SERVER['DOCUMENT_ROOT'] . "/ProjetWeb/images/";
 

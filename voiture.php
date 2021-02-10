@@ -2,7 +2,7 @@
 require "configuration.php";
 require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
-$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+$id = filter_input(INPUT_GET, 'voiture', FILTER_VALIDATE_INT);
 $voiture = VoitureDAO::lireVoiture($id);
 
 include "entete.php";
@@ -13,19 +13,19 @@ include "getVisiteurInfos.php";
 <br>
 <div class="voiture">
     <?php 
-        if(empty($voiture["image"])){echo "<img src='images/no-image-icon-0.jpg' alt='Miniature' class='image'></img>";}else{echo "<img src='images/".$voiture['image']."' alt='Miniature' class='image'></img>";} 
+        if(empty(formater($voiture->image))){echo "<img src='images/no-image-icon-0.jpg' alt='Miniature' class='image'></img>";}else{echo "<img src='images/".formater($voiture->image)."' alt='Miniature' class='image'></img>";} 
     ?>
 	<br>
-	<h3 class="textDetailVoiture"><?= $voiture["marque"]; ?> <?= $voiture["modele"]; ?></h3>
+	<h3 class="textDetailVoiture"><?= formater($voiture->marque); ?> <?= formater($voiture->modele); ?></h3>
 	<br>
-	<p class="textDetailVoiture">Année : <?= $voiture["annee"]; ?></p>
+	<p class="textDetailVoiture">Année : <?= formater($voiture->annee); ?></p>
 	<br>
-	<p class="textDetailVoiture">Prix : <span style="color:#37A864;"$>$<?= $voiture["prix"]; ?></span></p>
+	<p class="textDetailVoiture">Prix : <span style="color:#37A864;"$>$<?= formater($voiture->prix); ?></span></p>
     <br>
-	<p class="textDetailVoiture">Kilométrages : <?= $voiture["kilometrages"]; ?> km</p>
+	<p class="textDetailVoiture">Kilométrages : <?= formater($voiture->kilometrages); ?> km</p>
 	<br>
     <?php 
-        if(empty($voiture["description"])){echo "<p class='description'>Description : Aucune description du véhicule!</p>";}else{echo "<p class='textDetailVoiture'>Description du véhicule : ".$voiture['description']."</p>";} 
+        if(empty(formater($voiture->description))){echo "<p class='description'>Description : Aucune description du véhicule!</p>";}else{echo "<p class='textDetailVoiture'>Description du véhicule : ".formater($voiture->description)."</p>";} 
     ?>
 	<p style="padding-bottom: 15rem;"></p>
 </div>

@@ -20,26 +20,28 @@ $listResultatRecherche = VoitureDAO::lireRechercheRapide($textRecherche);
     <ul class="listeVoiture">
 
 <?php
-    foreach($listResultatRecherche as $resultat)
-    {
+    if (!empty($listResultatRecherche)){
+        foreach($listResultatRecherche as $resultat)
+        {
 ?>
         
-        <div class="itemListeVoiture">
-            <a class="lienListeVoiture" href="voiture.php?id=<?= $resultat["id"];?>">
-                <li class="voitureListeVoiture">
-                    <?php 
-                        if(empty($resultat["image"])){echo "<img src='images/no-image-icon-0.jpg' alt='Miniature' class='imageListeVoiture'></img>";}else{echo "<img src='images/".$resultat['image']."' alt='Miniature' class='imageListeVoiture'></img>";} 
-                    ?>
-                    <h3><?= $resultat["marque"]; ?> <?= $resultat["modele"]; ?></h3>
-                    <br>
-                    <p class="descriptionListeVoiture">Prix : <span style="color:#37A864;"$>$<?= $resultat["prix"]; ?></span></p>
-                    <br>
-                    <p class="descriptionListeVoiture">Kilométrages : <?= $resultat["kilometrages"]; ?> km</p>
-                </li>
-            </a>
-        </div>
+            <div class="itemListeVoiture">
+                <a class="lienListeVoiture" href="voiture.php?voiture=<?= $resultat->id;?>">
+                    <li class="voitureListeVoiture">
+                        <?php 
+                            if(empty(formater($resultat->image))){echo "<img src='images/no-image-icon-0.jpg' alt='Miniature' class='imageListeVoiture'></img>";}else{echo "<img src='images/".formater($resultat->image)."' alt='Miniature' class='imageListeVoiture'></img>";} 
+                        ?>
+                        <h3><?= formater($resultat->marque); ?> <?= formater($resultat->modele); ?></h3>
+                        <br>
+                        <p class="descriptionListeVoiture">Prix : <span style="color:#37A864;"$>$<?= formater($resultat->prix); ?></span></p>
+                        <br>
+                        <p class="descriptionListeVoiture">Kilométrages : <?= formater($resultat->kilometrages); ?> km</p>
+                    </li>
+                </a>
+            </div>
 
 <?php
+        }
     }
 ?>
 
