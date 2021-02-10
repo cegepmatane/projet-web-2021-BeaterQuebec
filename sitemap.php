@@ -26,14 +26,16 @@ $listVoiture = VoitureDAO::listerVoiture();
         <lastmod>2021-01-18</lastmod>
     </url>
     <?php 
-        foreach($listVoiture as $voiture)
-        {
+        if (!empty($listVoiture)){
+            foreach($listVoiture as $voiture)
+            {
     ?>
-    <url>
+<url>
         <loc>http://localhost/ProjetWeb/voiture.php?voiture=<?=$voiture->id?></loc>
         <lastmod>2021-01-18</lastmod>
     </url>  
     <?php 
+            }
         }
     ?>
 

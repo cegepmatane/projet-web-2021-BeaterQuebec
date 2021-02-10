@@ -26,22 +26,24 @@ $listVoiture = VoitureDAO::listerVoiture();
         <generator>Programmation manuelle</generator>
 
     <?php 
-        foreach($listVoiture as $voiture)
-        {
+        if (!empty($listVoiture)){
+            foreach($listVoiture as $voiture)
+            {
 	?>
 
-	<item>
-		<title><?=formater($voiture->marque)?></title>
-		<link>http://localhost/ProjetWeb/voiture.php?id=<?=$voiture->id?></link>
-		<pubDate>Mon, 18 Mar 2019 14:27:41 +0000</pubDate>
-		<category><![CDATA[Voiture]]></category>
-		<guid isPermaLink="false">http://localhost/ProjetWeb/voiture.php?voiture=<?=$voiture->id?></guid>
-		<description><![CDATA[<?=formater($voiture->modele); ?>]]></description>
-		<content:encoded><![CDATA[<?=formater($voiture->annee); ?>]]></content:encoded>
-	</item>
+        <item>
+            <title><?=formater($voiture->marque)?></title>
+            <link>http://localhost/ProjetWeb/voiture.php?id=<?=$voiture->id?></link>
+            <pubDate>Mon, 18 Mar 2019 14:27:41 +0000</pubDate>
+            <category><![CDATA[Voiture]]></category>
+            <guid isPermaLink="false">http://localhost/ProjetWeb/voiture.php?voiture=<?=$voiture->id?></guid>
+            <description><![CDATA[<?=formater($voiture->modele); ?>]]></description>
+            <content:encoded><![CDATA[<?=formater($voiture->annee); ?>]]></content:encoded>
+        </item>
 
 	<?php
-	    }
+	       }
+        }
     ?>
 							
 	</channel>
