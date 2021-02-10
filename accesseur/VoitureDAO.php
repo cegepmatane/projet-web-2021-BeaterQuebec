@@ -21,8 +21,12 @@ class VoitureDAO{
     $requeteListeVoitures->execute();
     $listeVoitures = $requeteListeVoitures->fetchAll();
       
-    foreach($listeVoitures as $voiture) $voitures[] = new Voiture($voiture);
-    return $voitures;
+    if (!empty($listeVoitures)){
+        foreach($listeVoitures as $voiture) $voitures[] = new Voiture($voiture);
+        return $voitures;
+    }else{
+        return null;
+    }
   }
 
   public static function ajouterVoiture($voiture){
