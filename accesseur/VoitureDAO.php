@@ -37,7 +37,7 @@ class VoitureDAO extends AccesBaseDeDonneesVoitures{
       
     VoitureDAO::initialiser();
       
-    $MESSAGE_SQL_LISTE_VOITURE = "SELECT id, marque, modele, annee, description, prix, kilometrages, image, miniature FROM voitures;";
+    $MESSAGE_SQL_LISTE_VOITURE = "SELECT id, marque, modele, annee, description, prix, kilometrages, image FROM voitures;";
 
     $requeteListeVoitures = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_LISTE_VOITURE);
     $requeteListeVoitures->execute();
