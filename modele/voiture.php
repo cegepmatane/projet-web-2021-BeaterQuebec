@@ -24,7 +24,9 @@ class Voiture
 	
 	public function __construct($tableau)
 	{
-		$tableau = filter_var_array($tableau, Voiture::$filtres);
+        if (is_array($tableau)){
+		  $tableau = filter_var_array($tableau, Voiture::$filtres); 
+        }
 
 		$this->id = $tableau['id'];
 		$this->marque = $tableau['marque'];

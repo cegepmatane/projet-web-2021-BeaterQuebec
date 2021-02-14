@@ -1,4 +1,22 @@
 <?php
+session_start();
+
+if (!empty($_SESSION)) {
+    if ($_SESSION['admin']){
+        
+    }else{
+        echo '<script type="text/javascript">';  
+        echo 'window.location.href = "../index.php";';
+        echo 'history.go(-1);';
+        echo '</script>';
+    }
+}else{
+    echo '<script type="text/javascript">';  
+    echo 'window.location.href = "../index.php";';
+    echo 'history.go(-1);';
+    echo '</script>';
+}
+
 require "../configuration.php";
 require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
@@ -23,7 +41,7 @@ $listVoiture = VoitureDAO::listerVoiture();
 
 	<section id="contenu" style="">
 	
-		<a class="boutonPanneauAdministration" href="ajouter-voiture.html">Ajouter une Voiture</a>
+		<a class="boutonPanneauAdministration" href="ajouter-voiture.php">Ajouter une Voiture</a>
         <br><br>
 		<?php 	
             if (!empty($listVoiture)){

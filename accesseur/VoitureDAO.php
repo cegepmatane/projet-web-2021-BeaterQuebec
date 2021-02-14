@@ -187,28 +187,6 @@ class VoitureDAO extends AccesBaseDeDonneesVoitures{
         return null;
     }
   }
-
-  /*
-  public static function voirStatistiqueContenuParGroupe(){
-    $MESSAGE_SQL_STATISTIQUE_CONTENU_PAR_GROUPE = "SELECT Groupe as groupe, count(*) as voiture, AVG(nombreProduit) as moyenneProduit, STDDEV_POP(nombreProduit) as ecartTypeNombreProduit, SUM(nombreProduit) as nombreProduitTotal, MIN(nombreProduit) as minNombreProduit, MAX(nombreProduit) as maxNombreProduit FROM rallye GROUP BY Groupe;";
-
-    $requeteStatistiquesContenuParGroupe = AccesBaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_STATISTIQUE_CONTENU_PAR_GROUPE);
-    $requeteStatistiquesContenuParGroupe->execute();
-    $statistiquesContenuParGroupe = $requeteStatistiquesContenuParGroupe->fetchAll();
-
-    return $statistiquesContenuParGroupe;
-  }
-
-  public static function voirStatistiqueContenu(){
-    $MESSAGE_SQL_STATISTIQUE_CONTENU = "SELECT count(*) as voiture, AVG(nombreProduit) as moyenneProduit, STDDEV_POP(nombreProduit) as ecartTypeNombreProduit, SUM(nombreProduit) as nombreProduitTotal, MIN(nombreProduit) as minNombreProduit, MAX(nombreProduit) as maxNombreProduit FROM rallye;";
-
-    $requeteStatistiquesContenu = AccesBaseDeDonnees::GetConnexion()->prepare($MESSAGE_SQL_STATISTIQUE_CONTENU);
-    $requeteStatistiquesContenu->execute();
-    $statistiquesContenu = $requeteStatistiquesContenu->fetchAll();
-
-    return $statistiquesContenu;
-  }
-  */
 }
 
 function formater($texte)
