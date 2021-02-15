@@ -65,7 +65,42 @@ class MembreDAO extends AccesBaseDeDonneesMembres{
         $reussiteAjout = $requeteAjouterMembre->execute();
         return $reussiteAjout;
     }
+    public static function modifierMembreInfo($membre){
+        
+        MembreDAO::initialiser();
+        
+        $SQL_MODIFIER_MEMBRE = "UPDATE membre SET pseudonyme = ".":pseudonyme".", nom = ".":nom".", prenom = ".":prenom".", email = ".":email"." WHERE id = :id";
+
+        $requeteModifierMembre = MembreDAO::$basededonnees->prepare($SQL_MODIFIER_MEMBRE);
+        
+        $pseudonyme = urldecode($membre["pseudonyme"]);
+        $nom = urldecode($membre["nom"]);
+        $prenom = urldecode($membre["prenom"]);
+        $email = urldecode($membre["email"]);
+
+        $requeteModifierMembre->bindParam(':pseudonyme', $pseudonyme, PDO::PARAM_STR);
+        $requeteModifierMembre->bindParam(':nom', $nom, PDO::PARAM_STR);
+        $requeteModifierMembre->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+        $requeteModifierMembre->bindParam(':email', $email, PDO::PARAM_STR);
+        $requeteModifierMembre->bindParam(':id', $_SESSION["id"], PDO::PARAM_STR);
+        
+        $reussiteModification = $requeteModifierMembre->execute();
+        return $reussiteModification;
+    }
+    public static function modifierMotDePasse($membreNouveauMotDePasse){
+        
+        MembreDAO::initialiser();
+
+        $SQL_MODIFIER_MEMBRE = "UPDATE membre SET motDePasse = ".":motDePasse"." WHERE id = :id";
+
+        $requeteModifierMembre = MembreDAO::$basededonnees->prepare($SQL_MODIFIER_MEMBRE);
     
+        $requeteModifierMembre->bindParam(':motDePasse', $membreNouveauMotDePasse, PDO::PARAM_STR);
+        $requeteModifierMembre->bindParam(':id', $_SESSION["id"], PDO::PARAM_STR);
+        
+        $reussiteModification = $requeteModifierMembre->execute();
+        return $reussiteModification;
+    }
     public static function lireMembreParPseudonyme($pseudonyme){
         
         MembreDAO::initialiser();
@@ -82,7 +117,6 @@ class MembreDAO extends AccesBaseDeDonneesMembres{
 
         return new Membre($membre);
     }
-    
     public static function lireMembreParCourriel($courriel){
         
         MembreDAO::initialiser();
