@@ -79,14 +79,14 @@ $dateTime = date('Y/m/d G:i');
                 </div>
             </a>
 
-            <a class="lienGrillePanneauAdministration" href="WIP.php">
+            <a class="lienGrillePanneauAdministration" href="liste-membre.php">
                 <div style="grid-area: 2 / 1 / 3 / 2;">
                     <br>
                     <p class="texteVignettePanneauAdministration">
-                        Work In Progress
+                        Gestion des Membres
                     </p>
                     <br>
-                    <img src="../images/work-in-progress-icon.png" alt="WIP" style="width:100%; height:13rem;">
+                    <img src="../images/gestion_membre.png" alt="Gestion des Membres" style="width:100%; height:13rem;">
                 </div>
             </a>
 

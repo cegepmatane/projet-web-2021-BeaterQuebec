@@ -42,7 +42,36 @@ class MembreDAO extends AccesBaseDeDonneesMembres{
             return null;
         }
     } 
+    public static function listerMembre(){
+      
+        MembreDAO::initialiser();
+          
+        $MESSAGE_SQL_LISTE_MEMBRE = "SELECT * FROM membre;";
+    
+        $requeteListeMembres = MembreDAO::$basededonnees->prepare($MESSAGE_SQL_LISTE_MEMBRE);
+        $requeteListeMembres->execute();
+        $listeMembres = $requeteListeMembres->fetchAll();
+          
+        if (!empty($listeMembres)){
+            foreach($listeMembres as $membre) $membres[] = new Membre($membre);
+            return $membres;
+        }else{
+            return null;
+        }
+    }
+    public static function supprimerMembre($id){
+    
+        MembreDAO::initialiser();
+            
+        $SQL_SUPPRIMER_MEMBRE = "DELETE FROM membre WHERE id = " . $id;
 
+        $requeteSupprimerMembre = MembreDAO::$basededonnees->prepare($SQL_SUPPRIMER_MEMBRE);
+        $requeteSupprimerMembre->execute();
+
+        $reussiteSupprimer = $requeteSupprimerMembre->execute();
+
+        return $reussiteSupprimer;
+    }
     public static function ajouterMembre($membre){
         
         MembreDAO::initialiser();
@@ -101,13 +130,27 @@ class MembreDAO extends AccesBaseDeDonneesMembres{
         $reussiteModification = $requeteModifierMembre->execute();
         return $reussiteModification;
     }
+    public static function modifierMotDePasseParPseudonyme($membreNouveauMotDePasse,$pseudonyme){
+        
+        MembreDAO::initialiser();
+
+        $SQL_MODIFIER_MEMBRE = "UPDATE membre SET motDePasse = ".":motDePasse"." WHERE pseudonyme = :pseudonyme";
+
+        $requeteModifierMembre = MembreDAO::$basededonnees->prepare($SQL_MODIFIER_MEMBRE);
+    
+        $requeteModifierMembre->bindParam(':motDePasse', $membreNouveauMotDePasse, PDO::PARAM_STR);
+        $requeteModifierMembre->bindParam(':pseudonyme', $pseudonyme, PDO::PARAM_STR);
+        
+        $reussiteModification = $requeteModifierMembre->execute();
+        return $reussiteModification;
+    }
     public static function lireMembreParPseudonyme($pseudonyme){
         
         MembreDAO::initialiser();
         
         $pseudo = urldecode($pseudonyme);
         
-        $MESSAGE_SQL_LIRE_MEMBRE_PAR_PSEUDONYME = "SELECT id, pseudonyme FROM membre WHERE pseudonyme =:pseudonyme;";
+        $MESSAGE_SQL_LIRE_MEMBRE_PAR_PSEUDONYME = "SELECT * FROM membre WHERE pseudonyme =:pseudonyme;";
 
         $requeteLireMembreParPseudonyme = MembreDAO::$basededonnees->prepare($MESSAGE_SQL_LIRE_MEMBRE_PAR_PSEUDONYME);
         $requeteLireMembreParPseudonyme->bindParam(':pseudonyme', $pseudo, PDO::PARAM_STR);

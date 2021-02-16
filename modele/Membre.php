@@ -8,7 +8,7 @@ class Membre
 			'pseudonyme' => FILTER_SANITIZE_ENCODED,
 			'nom' => FILTER_SANITIZE_ENCODED,
 			'prenom' => FILTER_SANITIZE_ENCODED,
-            'email' => FILTER_SANITIZE_ENCODED,
+            'email' => FILTER_SANITIZE_STRING,
             'admin' => FILTER_VALIDATE_INT,
 			'motDePasse' => FILTER_SANITIZE_ENCODED
 		);
@@ -24,7 +24,7 @@ class Membre
 	{
         if (is_array($tableau)){
 		  $tableau = filter_var_array($tableau, Membre::$filtres);   
-        }
+        
 
 		$this->id = $tableau['id'];
 		$this->pseudonyme = $tableau['pseudonyme'];
@@ -33,6 +33,7 @@ class Membre
         $this->email = $tableau['email'];
         $this->admin = $tableau['admin'];
         $this->motDePasse = $tableau['motDePasse'];
+		}
 	}
 	
 	public function __set($propriete, $valeur)
