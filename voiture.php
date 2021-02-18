@@ -2,8 +2,15 @@
 require "configuration.php";
 require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 
+
 $id = filter_input(INPUT_GET, 'voiture', FILTER_VALIDATE_INT);
 $voiture = VoitureDAO::lireVoiture($id);
+if ($voiture->vendu)
+{
+	echo '<script type="text/javascript">'; 
+    echo 'window.location.href = "liste-voiture.php";';
+    echo '</script>';
+}
 
 include "entete.php";
 include "getVisiteurInfos.php";
@@ -27,7 +34,14 @@ include "getVisiteurInfos.php";
     <?php 
         if(empty(formater($voiture->description))){echo "<p class='description'>Description : Aucune description du véhicule!</p>";}else{echo "<p class='textDetailVoiture'>Description du véhicule : ".formater($voiture->description)."</p>";} 
     ?>
-	<p style="padding-bottom: 15rem;"></p>
-</div>
+	<?php
+	if (!empty($_SESSION)){
+		
+	require "stripe/config.php";
+    include "stripe/index.php";
+}
+
+?>
+	
 
 <?php include "pied-page.php"?>
