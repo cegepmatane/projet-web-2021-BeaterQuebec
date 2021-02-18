@@ -17,12 +17,14 @@ if(!$estConnecte && isset($_POST["action-connexion"])){
     $estConnecte = isset($membre->id);
 
     if ($estConnecte){
+        $_SESSION["id"] = $membre->id;
         $_SESSION["estConnecte"] = true;
         $_SESSION["pseudonyme"] = formater($membre->pseudonyme);
         $_SESSION["nom"] = formater($membre->nom);
         $_SESSION["prenom"] = formater($membre->prenom);
         $_SESSION["email"] = formater($membre->email);
         $_SESSION["admin"] = $membre->admin;
+        $_SESSION["motDePasse"] = formater($membre->motDePasse);
         
         echo '<script type="text/javascript">'; 
         echo 'window.location.href = "membre.php";';
