@@ -18,9 +18,9 @@ if (!empty($_SESSION)) {
 }
 
 require "../configuration.php";
-require CHEMIN_ACCESSEUR . "VoitureDAO.php";
+require CHEMIN_ACCESSEUR . "MembreDAO.php";
 
-$listVoiture = VoitureDAO::listerVoiture();
+$listeMembre = MembreDAO::listerMembre();
 ?>
 
 <!doctype html>
@@ -36,24 +36,22 @@ $listVoiture = VoitureDAO::listerVoiture();
             <a href="index.php" class="logo">Panneau Administration</a>
         </div>
         
-        <h1 class="titrePrincipalePanneauAdmin">Gestion des Voitures</h1>
+        <h1 class="titrePrincipalePanneauAdmin">Gestion des Membres</h1>
 	</header>
 
 	<section id="contenu" style="">
-	
-		<a class="boutonPanneauAdministration" href="ajouter-voiture.php">Ajouter une Voiture</a>
         <br><br>
-		<?php 	
-            if (!empty($listVoiture)){
-                foreach($listVoiture as $voiture)
+		<?php
+            if (!empty($listeMembre)){
+                foreach($listeMembre as $membre)
                 {
 		?>
                     <div class="recordPanneauAdministration">
-                        <?php echo formater($voiture->marque); ?> <?php echo formater($voiture->modele); ?>
-                        <a class="lienPanneauAdministration" style="float: right; margin-left:1rem;" href="modifier-voiture.php?voiture=<?php echo $voiture->id; ?>" title="">
+                        <?php echo formater($membre->pseudonyme); ?> <?php echo formater($membre->nom); ?> <?php echo formater($membre->prenom); ?>
+                        <a class="lienPanneauAdministration" style="float: right; margin-left:1rem;" href="modifier-membre.php?pseudonyme=<?php echo $membre->pseudonyme; ?>&email=<?php echo $membre->email; ?>" title="">
                             Modifier
                         </a>
-                        <a class="lienPanneauAdministration" style="float: right;" href="supprimer-voiture.php?voiture=<?php echo $voiture->id; ?>" title="">
+                        <a class="lienPanneauAdministration" style="float: right;" href="supprimer-membre.php?membre=<?php echo $membre->id; ?>" title="">
                             Supprimer
                         </a>
                     </div>		
