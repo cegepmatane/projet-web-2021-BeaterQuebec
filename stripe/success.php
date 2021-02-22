@@ -4,6 +4,7 @@ require_once 'config.php';
  
 // Include database connection file  
 include_once 'dbConnection.php'; 
+include "../entete.php";
  
 $payment_id = $statusMsg = ''; 
 $ordStatus = 'error'; 
@@ -77,7 +78,8 @@ if(!empty($_GET['session_id'])){
                      
                     // If the order is successful 
                     if($paymentStatus == 'succeeded'){ 
-                        $statusMsg = 'Your Payment has been Successful!'; 
+                        $statusMsg = 'Your Payment has been Successful!';
+                        VoitureDAO::acheterVoiture($_SESSION['id'], $voiture->id); 
                     }else{ 
                         $statusMsg = "Your Payment has failed!"; 
                     } 
@@ -94,7 +96,7 @@ if(!empty($_GET['session_id'])){
         } 
     } 
 }else{ 
-    $statusMsg = "Invalid Request!"; 
+    $statusMsg = "Requete invalide!"; 
 } 
 ?>
 
@@ -103,6 +105,7 @@ if(!empty($_GET['session_id'])){
 <head>
 <title>Stripe Payment Status - CodexWorld</title>
 <meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../styles/style.css">
 
 <!-- Stylesheet file -->
 </head>
@@ -122,7 +125,8 @@ if(!empty($_GET['session_id'])){
             <p><b>Price:</b> <?php echo $productPrice.' '.$currency; ?></p>
         <?php } ?>
     </div>
-    <a href="index.php" class="btn-link">Back to Product Page</a>
+    <br>
+    <a class="boutonThemeMenu" href="../liste-voiture.php" class="btn-link">Retour a liste de voiture</a>
 </div>
 </body>
 </html>

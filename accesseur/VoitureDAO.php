@@ -7,8 +7,8 @@ class AccesBaseDeDonneesVoitures
 
     public static function initialiser()
     {
-        $usager = 'BeaterQuebec';
-        $motdepasse = 'BeaterQuebec12!';
+        $usager = 'root';
+        $motdepasse = '';
         $hote = 'localhost';
         $base = 'BeaterQuebec';
         $dsn = 'mysql:dbname='.$base.';host=' . $hote;
@@ -33,11 +33,30 @@ class VoitureDAO extends AccesBaseDeDonneesVoitures{
     return new Voiture($voiture);
   }
 
+
+  public static function acheterVoiture($idMembre, $idVoiture){
+    VoitureDAO::initialiser();
+
+    $MESSAGE_SQL_VOITURE = "UPDATE voitures SET vendu=1 WHERE id =:id;";
+
+    $requeteAchatVoitures = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_VOITURE);
+    $requeteAchatVoitures->bindParam(':id', $idVoiture, PDO::PARAM_INT);
+    $requeteAchatVoitures->execute();
+
+    $MESSAGE_SQL_VOITURE = "INSERT INTO `vendus`(`fk_voiture`, `fk_membre`) VALUES (:idVoiture, :idMembre)";
+
+    $requeteAchatVoitures = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_VOITURE);
+    $requeteAchatVoitures->bindParam(':idVoiture', $idVoiture, PDO::PARAM_INT);
+    $requeteAchatVoitures->bindParam(':idMembre', $idMembre, PDO::PARAM_INT);
+    $requeteAchatVoitures->execute();
+    
+  }
+
   public static function listerVoiture(){
       
     VoitureDAO::initialiser();
       
-    $MESSAGE_SQL_LISTE_VOITURE = "SELECT id, marque, modele, annee, description, prix, kilometrages, image FROM voitures;";
+    $MESSAGE_SQL_LISTE_VOITURE = "SELECT id, marque, modele, annee, description, prix, kilometrages, image FROM voitures WHERE vendu=0;";
 
     $requeteListeVoitures = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_LISTE_VOITURE);
     $requeteListeVoitures->execute();
