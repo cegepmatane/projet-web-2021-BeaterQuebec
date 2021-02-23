@@ -7,8 +7,8 @@ class AccesBaseDeDonneesVoitures
 
     public static function initialiser()
     {
-        $usager = 'root';
-        $motdepasse = '';
+        $usager = 'BeaterQuebec';
+        $motdepasse = 'BeaterQuebec12!';
         $hote = 'localhost';
         $base = 'BeaterQuebec';
         $dsn = 'mysql:dbname='.$base.';host=' . $hote;
@@ -200,9 +200,9 @@ public static function lireVoitureVendu($id){
     VoitureDAO::initialiser();
       
     if (empty($textRecherche))
-      $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description, prix, kilometrages, image FROM voitures WHERE marque LIKE '%null%' OR modele LIKE '%null%' OR annee LIKE '%null%' OR description LIKE '%null%' AND vendu = 0;";
+      $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description, prix, kilometrages, image FROM voitures WHERE vendu = 0 AND (marque LIKE '%null%' OR modele LIKE '%null%' OR annee LIKE '%null%' OR description LIKE '%null%');";
     else
-      $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description, prix, kilometrages, image FROM voitures WHERE marque LIKE '%$textRecherche%' OR modele LIKE '%$textRecherche%' OR annee LIKE '%$textRecherche%' OR description LIKE '%$textRecherche%' AND vendu = 0;";
+      $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description, prix, kilometrages, image FROM voitures WHERE vendu = 0 AND (marque LIKE '%$textRecherche%' OR modele LIKE '%$textRecherche%' OR annee LIKE '%$textRecherche%' OR description LIKE '%$textRecherche%');";
 
     $requeteResultatRecherche = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE);
     $requeteResultatRecherche->execute();
