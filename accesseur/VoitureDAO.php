@@ -200,9 +200,9 @@ public static function lireVoitureVendu($id){
     VoitureDAO::initialiser();
       
     if (empty($textRecherche))
-      $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description, prix, kilometrages, image FROM voitures WHERE marque LIKE '%null%' OR modele LIKE '%null%' OR annee LIKE '%null%' OR description LIKE '%null%';";
+      $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description, prix, kilometrages, image FROM voitures WHERE marque LIKE '%null%' OR modele LIKE '%null%' OR annee LIKE '%null%' OR description LIKE '%null%' AND vendu = 0;";
     else
-      $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description, prix, kilometrages, image FROM voitures WHERE marque LIKE '%$textRecherche%' OR modele LIKE '%$textRecherche%' OR annee LIKE '%$textRecherche%' OR description LIKE '%$textRecherche%';";
+      $MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE = "SELECT id, marque, modele, annee, description, prix, kilometrages, image FROM voitures WHERE marque LIKE '%$textRecherche%' OR modele LIKE '%$textRecherche%' OR annee LIKE '%$textRecherche%' OR description LIKE '%$textRecherche%' AND vendu = 0;";
 
     $requeteResultatRecherche = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_LISTE_RESULTAT_RECHERCHE);
     $requeteResultatRecherche->execute();
@@ -243,7 +243,7 @@ public static function lireVoitureVendu($id){
     }
     if(!empty($conditions))
     {
-      $sql = "SELECT id, marque, modele, annee, description, prix, kilometrages, image FROM voitures WHERE ";
+      $sql = "SELECT id, marque, modele, annee, description, prix, kilometrages, image FROM voitures WHERE vendu = 0 AND ";
       $sql = $sql . implode(' AND ', $conditions);
     }
     
