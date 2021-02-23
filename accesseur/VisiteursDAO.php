@@ -6,8 +6,8 @@ class AccesBaseDeDonneesVisiteurs
 
     public static function initialiser()
     {
-        $usager = 'BeaterQuebec';
-        $motdepasse = 'BeaterQuebec12!';
+        $usager = 'root';
+        $motdepasse = '';
         $hote = 'localhost';
         $base = 'BeaterQuebec';
         $dsn = 'mysql:dbname='.$base.';host=' . $hote;

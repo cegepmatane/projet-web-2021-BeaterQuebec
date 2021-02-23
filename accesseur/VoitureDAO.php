@@ -32,9 +32,62 @@ class VoitureDAO extends AccesBaseDeDonneesVoitures{
     
     return new Voiture($voiture);
   }
+  public static function voitureEstVendu($id){
+      
+    VoitureDAO::initialiser();
+      
+    $MESSAGE_SQL_LISTE_VENDU = "SELECT * FROM vendus WHERE fk_voiture = :id";
+
+    $requeteListeVendus = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_LISTE_VENDU);
+    $requeteListeVendus->bindParam(':id', $id, PDO::PARAM_INT);
+    $requeteListeVendus->execute();
+    $listeVendus = $requeteListeVendus->fetch();
+      
+    if (empty($listeVendus)){
+        return false;
+    }else{
+        return true;
+    }
+}
+public static function lireVendu($id){
+      
+  VoitureDAO::initialiser();
+    
+  $MESSAGE_SQL_LISTE_VOITURE = "SELECT * FROM vendus WHERE fk_membre = :id";
+
+  $requeteListeVendus = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_LISTE_VOITURE);
+  $requeteListeVendus->bindParam(':id', $id, PDO::PARAM_INT);
+  $requeteListeVendus->execute();
+  $listeVendus = $requeteListeVendus->fetchAll();
+    
+  if (!empty($listeVendus)){
+      return $listeVendus;
+  }else{
+      return null;
+  }
+}
+
+public static function lireVoitureVendu($id){
+      
+  VoitureDAO::initialiser();
+    
+  $MESSAGE_SQL_LISTE_VENDU = "SELECT * FROM voitures WHERE id = :id";
+
+  $requeteListeVendus = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_LISTE_VENDU);
+  $requeteListeVendus->bindParam(':id', $id, PDO::PARAM_INT);
+  $requeteListeVendus->execute();
+  $listeVendus = $requeteListeVendus->fetch();
+    
+  if (!empty($listeVendus)){
+      
+      return new Voiture($listeVendus);
+  }else{
+      return null;
+  }
+}
 
 
-  public static function acheterVoiture($idMembre, $idVoiture){
+  public static function acheterVoiture($idMembre, $idVoiture, $idStripe){
     VoitureDAO::initialiser();
 
     $MESSAGE_SQL_VOITURE = "UPDATE voitures SET vendu=1 WHERE id =:id;";
@@ -43,11 +96,12 @@ class VoitureDAO extends AccesBaseDeDonneesVoitures{
     $requeteAchatVoitures->bindParam(':id', $idVoiture, PDO::PARAM_INT);
     $requeteAchatVoitures->execute();
 
-    $MESSAGE_SQL_VOITURE = "INSERT INTO `vendus`(`fk_voiture`, `fk_membre`) VALUES (:idVoiture, :idMembre)";
+    $MESSAGE_SQL_VOITURE = "INSERT INTO `vendus`(`fk_voiture`, `fk_membre`, `id_stripe`) VALUES (:idVoiture, :idMembre, :idStripe)";
 
     $requeteAchatVoitures = VoitureDAO::$basededonnees->prepare($MESSAGE_SQL_VOITURE);
     $requeteAchatVoitures->bindParam(':idVoiture', $idVoiture, PDO::PARAM_INT);
     $requeteAchatVoitures->bindParam(':idMembre', $idMembre, PDO::PARAM_INT);
+    $requeteAchatVoitures->bindParam(':idStripe', $idStripe, PDO::PARAM_STR);
     $requeteAchatVoitures->execute();
     
   }
@@ -208,14 +262,18 @@ class VoitureDAO extends AccesBaseDeDonneesVoitures{
   }
 }
 
-function formater($texte)
+if(!function_exists ('formater'))
 {
-    $texte = html_entity_decode($texte,ENT_COMPAT,'UTF-8');
-    $texte = htmlentities($texte,ENT_COMPAT,'ISO-8859-1');
-    
-    $newText = urldecode($texte);
-    
-    return $newText;
+  function formater($texte)
+  {
+      $texte = html_entity_decode($texte,ENT_COMPAT,'UTF-8');
+      $texte = htmlentities($texte,ENT_COMPAT,'ISO-8859-1');
+      
+      $newText = urldecode($texte);
+      
+      return $newText;
 
+  }
 }
+
 ?>

@@ -35,6 +35,7 @@ CREATE TABLE `membre` (
   `email` varchar(255) NOT NULL,
   `admin` tinyint(1) NOT NULL,
   `motDePasse` varchar(255) NOT NULL
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -75,6 +76,7 @@ CREATE TABLE `voitures` (
   `prix` int(11) NOT NULL,
   `vendu` tinyint(1) DEFAULT 0,
   `image` varchar(255) DEFAULT NULL
+    
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

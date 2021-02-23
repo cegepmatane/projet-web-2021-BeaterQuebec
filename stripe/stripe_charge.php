@@ -26,8 +26,10 @@ if (json_last_error() !== JSON_ERROR_NONE) {
     http_response_code(400); 
     echo json_encode($response); 
     exit; 
-} 
- 
+}
+
+$prixVoiture = round($request->productPrice*100, 2);
+
 if(!empty($request->checkoutSession)){ 
     // Create new Checkout Session for the order 
     try { 
@@ -36,19 +38,19 @@ if(!empty($request->checkoutSession)){
             'line_items' => [[ 
                 'price_data' => [ 
                     'product_data' => [ 
-                        'name' => $productName, 
+                        'name' => $request->productName, 
                         'metadata' => [ 
-                            'pro_id' => $productID 
+                            'pro_id' => $request->idVoiture 
                         ] 
                     ], 
-                    'unit_amount' => $stripeAmount, 
+                    'unit_amount' => $prixVoiture, 
                     'currency' => "cad", 
                 ], 
                 'quantity' => 1, 
-                'description' => $productName, 
+                'description' => $request->productName, 
             ]], 
             'mode' => 'payment', 
-            'success_url' => STRIPE_SUCCESS_URL.'?session_id={CHECKOUT_SESSION_ID}', 
+            'success_url' => STRIPE_SUCCESS_URL.'?session_id={CHECKOUT_SESSION_ID}&voiture=' . $request->idVoiture, 
             'cancel_url' => STRIPE_CANCEL_URL, 
         ]); 
     }catch(Exception $e) {  

@@ -23,13 +23,14 @@ include "getVisiteurInfos.php";
         if(empty(formater($voiture->image))){echo "<img src='images/no-image-icon-0.jpg' alt='Miniature' class='image'></img>";}else{echo "<img src='images/".formater($voiture->image)."' alt='Miniature' class='image'></img>";} 
     ?>
 	<br>
-	<h3 class="textDetailVoiture"><?= formater($voiture->marque); ?> <?= formater($voiture->modele); ?></h3>
+	<h3 id="produitNom" class="textDetailVoiture"><?= formater($voiture->marque); ?> <?= formater($voiture->modele); ?></h3>
 	<br>
 	<p class="textDetailVoiture">Année : <?= formater($voiture->annee); ?></p>
 	<br>
 	<p class="textDetailVoiture">Prix : <span style="color:#37A864;"$>$<?= formater($voiture->prix); ?></span></p>
     <br>
 	<p class="textDetailVoiture">Kilométrages : <?= formater($voiture->kilometrages); ?> km</p>
+	<p style="opacity: 0%;" id="prixProduit"><?= formater($voiture->prix); ?></p>
 	<br>
     <?php 
         if(empty(formater($voiture->description))){echo "<p class='description'>Description : Aucune description du véhicule!</p>";}else{echo "<p class='textDetailVoiture'>Description du véhicule : ".formater($voiture->description)."</p>";} 

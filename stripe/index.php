@@ -5,7 +5,7 @@ require_once 'stripe/config.php';
 <script src="https://js.stripe.com/v3/"></script>
 
 
-
+<!-- productName: document.getElementById('produitNom').innerHTML-->
 <!-- Display errors returned by checkout session -->
 <div id="paymentResponse"></div>
 	
@@ -28,6 +28,9 @@ var createCheckoutSession = function (stripe) {
         },
         body: JSON.stringify({
             checkoutSession: 1,
+            productName: document.getElementById('produitNom').innerHTML,
+            productPrice: document.getElementById('prixProduit').innerHTML,
+            idVoiture: <?php echo $_GET['voiture']; ?>
         }),
     }).then(function (result) {
         return result.json();

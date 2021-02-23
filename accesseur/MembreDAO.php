@@ -7,8 +7,8 @@ class AccesBaseDeDonneesMembres
 
     public static function initialiser()
     {
-        $usager = 'BeaterQuebec';
-        $motdepasse = 'BeaterQuebec12!';
+        $usager = 'root';
+        $motdepasse = '';
         $hote = 'localhost';
         $base = 'BeaterQuebec';
         $dsn = 'mysql:dbname='.$base.';host=' . $hote;
@@ -59,6 +59,9 @@ class MembreDAO extends AccesBaseDeDonneesMembres{
             return null;
         }
     }
+
+    
+
     public static function supprimerMembre($id){
     
         MembreDAO::initialiser();
@@ -178,13 +181,17 @@ class MembreDAO extends AccesBaseDeDonneesMembres{
     }
 }
 
-function formater($texte)
+if(!function_exists ('formater'))
 {
-    $texte = html_entity_decode($texte,ENT_COMPAT,'UTF-8');
-    $texte = htmlentities($texte,ENT_COMPAT,'ISO-8859-1');
-    
-    $newText = urldecode($texte);
-    
-    return $newText;
+  function formater($texte)
+  {
+      $texte = html_entity_decode($texte,ENT_COMPAT,'UTF-8');
+      $texte = htmlentities($texte,ENT_COMPAT,'ISO-8859-1');
+      
+      $newText = urldecode($texte);
+      
+      return $newText;
+
+  }
 }
 ?>

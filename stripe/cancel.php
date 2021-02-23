@@ -1,4 +1,4 @@
-<?php include "../entete.php";?>
+<?php include "entete.php";?>
 <link rel="stylesheet" type="text/css" href="../styles/style.css">
 
 <div class="container">
