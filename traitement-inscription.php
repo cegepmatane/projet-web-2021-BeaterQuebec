@@ -60,7 +60,10 @@ if (isset($checkPseudonyme->id)){
             $headers = 'From: support@beaterquebec.shop' . "\r\n" .
             'Reply-To: support@beaterquebec.shop' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
-            mail($membre["email"],"Inscription à les Beaters du Québec", "Merci de votre inscription. Si ce n'était pas vous ou si vous rencontrez un problème quelconque veuillez nous contacter à l'adresse suivante : support@beaterquebec.shop.", $headers);
+                
+            $Mail = urldecode($membre["email"]);
+            
+            mail($Mail,"Inscription à les Beaters du Québec", "Merci de votre inscription. Si ce n'était pas vous ou si vous rencontrez un problème quelconque veuillez nous contacter à l'adresse suivante : support@beaterquebec.shop.", $headers);
             header("Location: membre.php");
             die();	
         }
