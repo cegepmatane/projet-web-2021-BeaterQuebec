@@ -33,8 +33,8 @@ if (isset($_SESSION['id'])){
 
                 $voiture = VoitureDAO:lireVoiture($_GET['voiture']);
                 
-                $headers = 'From: support@beaterquebec.com' . "\r\n" .
-                'Reply-To: support@beaterquebec.com' . "\r\n" .
+                $headers = 'From: support@beaterquebec.shop' . "\r\n" .
+                'Reply-To: support@beaterquebec.shop' . "\r\n" .
                 'X-Mailer: PHP/' . phpversion();
 
                 mail($_SESSION["email"],"Facture Beaters du Québec", "Merci de votre Achat sur BeaterQuebec : " . formater($voiture->marque) . formater($voiture->modele) . formater($voiture->prix) . " Si ce n'était pas vous ou si vous rencontrez un problème quelconque veuillez nous contacter à l'adresse suivante : support@beaterquebec.shop.", $headers);
