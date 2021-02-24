@@ -35,7 +35,7 @@ if (isset($_SESSION['id'])){
                 
                 $Mail = urldecode($_SESSION["email"]);
 
-                mail($Mail,"Facture Beaters du Québec", "Merci de votre achat sur BeaterQuebec : " . formater($voiture->marque) . " " . formater($voiture->modele) . " $" . formater($voiture->prix) . " Si ce n'était pas vous ou si vous rencontrez un problème quelconque veuillez nous contacter à l'adresse suivante : support@beaterquebec.shop.");
+                mail($Mail,"Facture Beaters du Quebec", "Merci de votre achat sur BeaterQuebec : " . formater($voiture->marque) . " " . formater($voiture->modele) . " $" . formater($voiture->prix) . "! Si ce n'était pas vous ou si vous rencontrez un problème quelconque veuillez nous contacter à l'adresse suivante : support@beaterquebec.shop.");
 
             }else{
                 $statusMsg = 'Voiture déjà vendu!';
