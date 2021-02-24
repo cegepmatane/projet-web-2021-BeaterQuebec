@@ -1,4 +1,6 @@
 <?php 
+include "entete.php";
+
 // Include configuration file
 require "../configuration.php";
 require CHEMIN_ACCESSEUR . "VoitureDAO.php";  
@@ -7,39 +9,48 @@ require_once 'config.php';
 
  
 // Include database connection file  
-include "entete.php";
  
 $statusMsg = ''; 
 $ordStatus = 'error';
 \Stripe\Stripe::setApiKey('sk_test_51ILubkC6za7rocHnNsuMY7Ubuy7lxlG6C0pfTRzh8tD2cFrhVKgivmEMHqJrANNuJZjv3Sba3EBG7kM60YkK8AeV00kMwxFB08');
 
-if(!empty($_GET['session_id'])&&!empty($_GET['voiture']))
-{
-    $session_id = $_GET['session_id'];
-    try { 
-        $checkout_session = \Stripe\Checkout\Session::retrieve($session_id); 
-    }catch(Exception $e) {  
-        $api_error = $e->getMessage();  
-    } 
-     
-    if(empty($api_error) && $checkout_session){ 
-        
-        if (!VoitureDAO::voitureEstVendu($_GET['voiture']))
-        {
-            VoitureDAO::acheterVoiture($_SESSION['id'], $_GET['voiture'], $session_id);
-            $statusMsg = 'Payment Réussi!';
-                
+if (isset($_SESSION['id'])){
+    if(!empty($_GET['session_id'])&&!empty($_GET['voiture']))
+    {
+        $session_id = $_GET['session_id'];
+        try { 
+            $checkout_session = \Stripe\Checkout\Session::retrieve($session_id); 
+        }catch(Exception $e) {  
+            $api_error = $e->getMessage();  
+        } 
+
+        if(empty($api_error) && $checkout_session){ 
+
+            if (!VoitureDAO::voitureEstVendu($_GET['voiture']))
+            {
+                VoitureDAO::acheterVoiture($_SESSION['id'], $_GET['voiture'], $session_id);
+                $statusMsg = 'Payment Réussi!';
+
+                $voiture = VoitureDAO:lireVoiture($_GET['voiture']);
+
+                mail($_SESSION["email"],"Facture Beaters du Québec", "Merci de votre Achat sur BeaterQuebec : " . formater($voiture->marque) . formater($voiture->modele) . formater($voiture->prix) . " Si ce n'était pas vous ou si vous rencontrez un problème quelconque veuillez nous contacter à l'adresse suivante : support@beaterquebec.shop.");
+
+            }else{
+                $statusMsg = 'Voiture deja vendu!';
+            }
         }else{
-            $statusMsg = 'Voiture deja vendu!';
+            $statusMsg = 'Payment incorrect!';
         }
     }else{
-        $statusMsg = 'Payment incorrect!';
+        $statusMsg = 'Aucune voiture choisi!';
     }
 }else{
-    $statusMsg = 'Aucune voiture choisi!';
+    echo '<script type="text/javascript">';  
+    echo 'window.location.href = "../index.php";';
+    echo 'history.go(-1);';
+    echo '</script>';
 }
 
- 
 ?>
 
 <!DOCTYPE html>

@@ -42,6 +42,7 @@ class MembreDAO extends AccesBaseDeDonneesMembres{
             return null;
         }
     } 
+    
     public static function listerMembre(){
       
         MembreDAO::initialiser();
@@ -60,8 +61,6 @@ class MembreDAO extends AccesBaseDeDonneesMembres{
         }
     }
 
-    
-
     public static function supprimerMembre($id){
     
         MembreDAO::initialiser();
@@ -75,6 +74,7 @@ class MembreDAO extends AccesBaseDeDonneesMembres{
 
         return $reussiteSupprimer;
     }
+    
     public static function ajouterMembre($membre){
         
         MembreDAO::initialiser();
@@ -97,6 +97,7 @@ class MembreDAO extends AccesBaseDeDonneesMembres{
         $reussiteAjout = $requeteAjouterMembre->execute();
         return $reussiteAjout;
     }
+    
     public static function modifierMembreInfo($membre){
         
         MembreDAO::initialiser();
@@ -119,6 +120,7 @@ class MembreDAO extends AccesBaseDeDonneesMembres{
         $reussiteModification = $requeteModifierMembre->execute();
         return $reussiteModification;
     }
+    
     public static function modifierMotDePasse($membreNouveauMotDePasse){
         
         MembreDAO::initialiser();

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 23 fév. 2021 à 04:38
--- Version du serveur :  10.4.13-MariaDB
--- Version de PHP : 7.4.8
+-- Généré le : mer. 24 fév. 2021 à 16:21
+-- Version du serveur :  10.4.17-MariaDB
+-- Version de PHP : 7.3.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `membre` (
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `admin` tinyint(1) NOT NULL,
+  `admin` tinyint(1) NOT NULL DEFAULT 0,
   `motDePasse` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -43,7 +43,8 @@ CREATE TABLE `membre` (
 
 INSERT INTO `membre` (`id`, `pseudonyme`, `nom`, `prenom`, `email`, `admin`, `motDePasse`) VALUES
 (6, 'xd', 'xdnom', 'xdprenom', 'xd@hotmail.com', 1, '$2y$10$V1eyRiR/FXhT26qxO0fGEuqaHOrtvXvNiQmEcKxHzO0hXShevAdYG'),
-(47, 'Thonio', 'Anto', 'Belan', 'dofman@hotmail.com', 1, '$2y$10$tTPzpZ7MTF5xitGMncKfR.TzB8z0TpBiD3P4NXoOcVCATxwOuGZGm');
+(47, 'Thonio', 'Anto', 'Belan', 'dofman@hotmail.com', 1, '$2y$10$tTPzpZ7MTF5xitGMncKfR.TzB8z0TpBiD3P4NXoOcVCATxwOuGZGm'),
+(48, 'test', 'Carrier', 'Charles', 'charlescarrier1337@hotmail.com', 0, '$2y$10$Hv8rWVXAFNaby8/V593ao.SMOQnIxObnMOqMqZTQyvw0H0zMxYN9i');
 
 -- --------------------------------------------------------
 
@@ -426,7 +427,17 @@ INSERT INTO `visiteurs` (`id`, `user_ip`, `page`, `parametre`, `langue`, `date`)
 (337, '::1', '/projetWeb/index.php', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-22 21:31:06'),
 (338, '::1', '/projetWeb/index.php', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-22 21:31:08'),
 (339, '::1', '/projetWeb/liste-voiture.php', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-22 21:31:14'),
-(340, '::1', '/projetWeb/index.php', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-22 21:31:16');
+(340, '::1', '/projetWeb/index.php', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-22 21:31:16'),
+(341, '::1', '/ProjetWeb/', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-24 07:58:44'),
+(342, '::1', '/ProjetWeb/', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-24 07:58:47'),
+(343, '::1', '/ProjetWeb/', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-24 07:59:32'),
+(344, '::1', '/ProjetWeb//index.php', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-24 08:02:03'),
+(345, '::1', '/ProjetWeb//liste-voiture.php', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-24 08:02:06'),
+(346, '::1', '/ProjetWeb//voiture.php?voiture=21', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-24 08:02:08'),
+(347, '::1', '/ProjetWeb//index.php', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-24 08:02:10'),
+(348, '::1', '/ProjetWeb//index.php', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-24 08:16:52'),
+(349, '::1', '/ProjetWeb//a-propos.php', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-24 08:16:53'),
+(350, '::1', '/ProjetWeb//liste-voiture.php', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7', '2021-02-24 08:16:54');
 
 -- --------------------------------------------------------
 
@@ -495,7 +506,7 @@ ALTER TABLE `voitures`
 -- AUTO_INCREMENT pour la table `membre`
 --
 ALTER TABLE `membre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT pour la table `vendus`
@@ -507,7 +518,7 @@ ALTER TABLE `vendus`
 -- AUTO_INCREMENT pour la table `visiteurs`
 --
 ALTER TABLE `visiteurs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=341;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=351;
 
 --
 -- AUTO_INCREMENT pour la table `voitures`
