@@ -248,9 +248,9 @@ footer{
 }
 
 .boutonThemeMenu:hover{
+	cursor: pointer;
 	background-color: rgba(31, 143, 255, 0.8);
 	transition: 0.3s;
-	cursor: pointer;
 }
 
 /*  Menu Principale fin   */

@@ -11,7 +11,8 @@ class Voiture
 			'description' => FILTER_SANITIZE_ENCODED,
 			'prix' => FILTER_SANITIZE_ENCODED,
             'kilometrages' => FILTER_SANITIZE_ENCODED,
-            'image' => FILTER_SANITIZE_ENCODED
+            'image' => FILTER_SANITIZE_ENCODED,
+            'vendu' => FILTER_SANITIZE_ENCODED
 		);
 		
 	protected $marque;
@@ -21,6 +22,7 @@ class Voiture
 	protected $prix;
 	protected $kilometrages;
     protected $image;
+    protected $vendu;
 	
 	public function __construct($tableau)
 	{
@@ -36,6 +38,7 @@ class Voiture
 		$this->prix = $tableau['prix'];
 		$this->kilometrages = $tableau['kilometrages'];
         $this->image = $tableau['image'];
+        $this->vendu = $tableau['vendu'];
 	}
 	
 	public function __set($propriete, $valeur)
@@ -65,6 +68,9 @@ class Voiture
 			break;
             case 'image':
 				$this->image = $valeur;
+			break;
+            case 'vendu':
+				$this->vendu = $valeur;
 			break;
 		}
 	}
