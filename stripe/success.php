@@ -31,7 +31,7 @@ if (isset($_SESSION['id'])){
                 VoitureDAO::acheterVoiture($_SESSION['id'], $_GET['voiture'], $session_id);
                 $statusMsg = 'Payment Réussi!';
 
-                $voiture = VoitureDAO:lireVoiture($_GET['voiture']);
+                $voiture = VoitureDAO::lireVoiture($_GET['voiture']);
                 
                 $Mail = urldecode($_SESSION["email"]);
 
@@ -55,16 +55,6 @@ if (isset($_SESSION['id'])){
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-<title>BeaterQc</title>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="/projetWeb/styles/style.css">
-
-<!-- Stylesheet file -->
-</head>
-<body>
 <div class="container">
     <div class="status">
         <h1><?php echo $statusMsg; ?></h1>
@@ -72,7 +62,6 @@ if (isset($_SESSION['id'])){
     <br>
     <a class="boutonThemeMenu" href="../liste-voiture.php" class="btn-link">Retour a liste de voiture</a>
 </div>
-</body>
-</html>
+
 
 <?php include "../pied-page.php";?>

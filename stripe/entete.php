@@ -1,7 +1,7 @@
 <!doctype html> 
 <html lang="fr">
 <head>
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" type="text/css" href="../styles/style.css">
 	<meta charset="utf-8">
   <title>Les Beaters du Québec</title>
 </head>
