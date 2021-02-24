@@ -1,5 +1,4 @@
 <?php include "entete.php";?>
-<link rel="stylesheet" type="text/css" href="../styles/style.css">
 
 <div class="container">
     <div class="status">
@@ -8,4 +7,5 @@
     <br>
     <a href="../liste-voiture.php" class="boutonThemeMenu">Retour a la liste des produits</a>
 </div>
-<?php include "../pied-page.php";?>
+
+<?php include "pied-page.php";?>

@@ -35,10 +35,10 @@ if (isset($_SESSION['id'])){
                 
                 $Mail = urldecode($_SESSION["email"]);
 
-                mail($Mail,"Facture Beaters du Québec", "Merci de votre Achat sur BeaterQuebec : " . formater($voiture->marque) . formater($voiture->modele) . formater($voiture->prix) . " Si ce n'était pas vous ou si vous rencontrez un problème quelconque veuillez nous contacter à l'adresse suivante : support@beaterquebec.shop.");
+                mail($Mail,"Facture Beaters du Québec", "Merci de votre achat sur BeaterQuebec : " . formater($voiture->marque) . " " . formater($voiture->modele) . " $" . formater($voiture->prix) . " Si ce n'était pas vous ou si vous rencontrez un problème quelconque veuillez nous contacter à l'adresse suivante : support@beaterquebec.shop.");
 
             }else{
-                $statusMsg = 'Voiture deja vendu!';
+                $statusMsg = 'Voiture déjà vendu!';
             }
         }else{
             $statusMsg = 'Payment incorrect!';
@@ -60,8 +60,8 @@ if (isset($_SESSION['id'])){
         <h1><?php echo $statusMsg; ?></h1>
     </div>
     <br>
-    <a class="boutonThemeMenu" href="../liste-voiture.php" class="btn-link">Retour a liste de voiture</a>
+    <a class="boutonThemeMenu" href="../liste-voiture.php" class="btn-link">Retour à liste de voiture</a>
 </div>
 
 
-<?php include "../pied-page.php";?>
+<?php include "pied-page.php";?>
