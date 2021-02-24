@@ -30,11 +30,11 @@ include "getVisiteurInfos.php";
 	<p class="textDetailVoiture">Prix : <span style="color:#37A864;"$>$<?= formater($voiture->prix); ?></span></p>
     <br>
 	<p class="textDetailVoiture">Kilométrages : <?= formater($voiture->kilometrages); ?> km</p>
-	<p style="opacity: 0%;" id="prixProduit"><?= formater($voiture->prix); ?></p>
 	<br>
     <?php 
-        if(empty(formater($voiture->description))){echo "<p class='description'>Description : Aucune description du véhicule!</p>";}else{echo "<p class='textDetailVoiture'>Description du véhicule : ".formater($voiture->description)."</p>";} 
+        if(empty(formater($voiture->description))){echo "<p class='textDetailVoiture'>Description : Aucune description du véhicule!</p>";}else{echo "<p class='textDetailVoiture'>Description du véhicule : ".formater($voiture->description)."</p>";} 
     ?>
+    <p style="opacity: 0%;" id="prixProduit"><?= formater($voiture->prix); ?></p>
 	<?php
 	if (!empty($_SESSION)){
 		
