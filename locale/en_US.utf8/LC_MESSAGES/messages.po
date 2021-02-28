@@ -60,3 +60,62 @@ msgstr "To join us"
 
 msgid "Pour toutes questions ou problèmes veuillez nous contacter à l'adresse suivante : support@beaterquebec.shop."
 msgstr "For any questions or problems please contact us at the following address: support@beaterquebec.shop."
+
+#Liste voitures / voiture
+
+msgid "Marque"
+msgstr "Brand"
+
+msgid "Modèle"
+msgstr "Model"
+
+msgid "Année de sortie"
+msgstr "Release year"
+
+msgid "1970 et moin"
+msgstr "1970 and less"
+
+msgid "2019 et plus"
+msgstr "2019 and up"
+
+msgid "Prix maximum"
+msgstr "Maximum price"
+
+msgid "Kilométrages maximum"
+msgstr "Maximum mileage"
+
+msgid "Prix : "
+msgstr "Price : "
+
+msgid "Kilométrages : "
+msgstr "Mileage : "
+
+msgid "Rechercher"
+msgstr "Search"
+
+#Détail voiture
+msgid "Description du véhicule : "
+msgstr "Description of the vehicle : "
+
+msgid "Année : "
+msgstr "Year : "
+
+msgid "Détails de la voiture"
+msgstr "Car details"
+
+msgid "Description : Aucune description du véhicule!"
+msgstr "Description : No description of the vehicle!"
+
+#authentification
+
+msgid "Connexion"
+msgstr "Login"
+
+msgid "Pseudonyme"
+msgstr "Username"
+
+msgid "Mot de passe"
+msgstr "Password"
+
+msgid "Pas de compte? Inscrivez-vous ici!"
+msgstr "No account? Register here!"
