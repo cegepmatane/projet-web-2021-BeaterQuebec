@@ -1,9 +1,31 @@
+<?php
+
+if(!isset($_GET['lang']))
+{
+  $locale = 'fr_CA.utf8';
+  $urlLocale = 'fr';
+}else if ($_GET['lang'] == 'en' ){
+  $locale = 'en_US.utf8';
+  $urlLocale = 'en';
+}else{
+  $locale = 'fr_CA.utf8';
+  $urlLocale = 'fr';
+}
+$domain = 'messages';
+setlocale(LC_ALL, $locale);
+putenv("LC_ALL=$locale");
+
+bindtextdomain($domain, "./locale");
+bind_textdomain_codeset($domain, 'UTF-8');
+textdomain($domain);
+
+?>
 <!doctype html> 
 <html lang="fr">
 <head>
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
 	<meta charset="utf-8">
-  <title>Les Beaters du Québec</title>
+  <title><?php echo _("Les Beaters du Québec") ?></title>
 </head>
 <body>
 	<header>
@@ -11,12 +33,12 @@
     <?php session_start();?>
         
     <div class="header">
-      <a href="index.php" class="logo">Les Beaters du Québec</a>
+      <a href="index.php?lang=<?php echo $urlLocale ?>" class="logo"><?php echo _("Les Beaters du Québec") ?></a>
       <div class="header-right">
-        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "index.php"){echo 'class="active"';}?> href="index.php">Acceuil</a>
-        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "a-propos.php"){echo 'class="active"';}?> href="a-propos.php">À propos</a>
-        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "liste-voiture.php"){echo 'class="active"';}?> href="liste-voiture.php">Voir les offres</a>
-        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "membre.php"){echo 'class="active"';}?> href="membre.php">Membre</a>
+        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "index.php"){echo 'class="active"';}?> href="index.php?lang=<?php echo $urlLocale ?>">Acceuil</a>
+        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "a-propos.php"){echo 'class="active"';}?> href="a-propos.php?lang=<?php echo $urlLocale ?>">À propos</a>
+        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "liste-voiture.php"){echo 'class="active"';}?> href="liste-voiture.php?lang=<?php echo $urlLocale ?>">Voir les offres</a>
+        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "membre.php"){echo 'class="active"';}?> href="membre.php?lang=<?php echo $urlLocale ?>">Membre</a>
         <?php 
           $page = basename($_SERVER["PHP_SELF"]); 
           

@@ -21,7 +21,16 @@ form input[type=text]:not(.inputRechercheRapide):not(.inputRechercheAvance){
 	padding: 0.5em;
 	margin-top: 0.5rem;
 }
+.inputLangue{
+	width: auto !important;
+	margin:auto !important;
+	margin:3px !important; 
 
+}
+footer{
+	display:flex;
+	justify-content: space-between;
+}
 form input[type=email]:not(.inputRechercheRapide):not(.inputRechercheAvance){
 	width: 25rem;
 	box-sizing: border-box;
@@ -148,8 +157,6 @@ footer{
 .imgRSS{
     height: 1.2rem;
     width: 1.2rem;
-    float: right;
-	margin-right:2rem;
 }
 
 .image{
