@@ -106,7 +106,7 @@ msgstr "Car details"
 msgid "Description : Aucune description du véhicule!"
 msgstr "Description : No description of the vehicle!"
 
-#authentification
+#Authentification
 
 msgid "Connexion"
 msgstr "Login"
@@ -119,3 +119,38 @@ msgstr "Password"
 
 msgid "Pas de compte? Inscrivez-vous ici!"
 msgstr "No account? Register here!"
+
+#Profil
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Addesse courriel"
+msgstr "Email address"
+
+msgid "Nom"
+msgstr "Last name"
+
+msgid "Prenom"
+msgstr "First name"
+
+msgid "Ancien mot de passe"
+msgstr "Old password"
+
+msgid "Nouveau mot de passe"
+msgstr "New password"
+
+msgid "Modifier vos informations"
+msgstr "Edit your information"
+
+msgid "Modifier votre mot de passe"
+msgstr "Change your password"
+
+msgid "Historique d'achat"
+msgstr "Purchase history"
+
+msgid "Se déconnecter"
+msgstr "Sign out"
+
+msgid "Bienvenue"
+msgstr "Welcome"

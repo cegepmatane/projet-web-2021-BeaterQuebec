@@ -33,18 +33,20 @@ textdomain($domain);
     <?php session_start();?>
         
     <div class="header">
-      <a href="index.php?lang=<?php echo $urlLocale ?>" class="logo"><?php echo _("Les Beaters du Québec"); ?></a>
+      <a href="index.php?lang=<?php echo $urlLocale; ?>" class="logo"><?php echo _("Les Beaters du Québec"); ?></a>
       <div class="header-right">
-        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "index.php"){echo 'class="active"';}?> href="index.php?lang=<?php echo $urlLocale ?>"><?php echo _("Acceuil"); ?></a>
-        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "a-propos.php"){echo 'class="active"';}?> href="a-propos.php?lang=<?php echo $urlLocale ?>"><?php echo _("À propos"); ?></a>
-        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "liste-voiture.php"){echo 'class="active"';}?> href="liste-voiture.php?lang=<?php echo $urlLocale ?>"><?php echo _("Voir les offres"); ?></a>
-        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "membre.php"){echo 'class="active"';}?> href="membre.php?lang=<?php echo $urlLocale ?>"><?php echo _("Membre"); ?></a>
+        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "index.php"){echo 'class="active"';}?> href="index.php?lang=<?php echo $urlLocale; ?>"><?php echo _("Acceuil"); ?></a>
+        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "a-propos.php"){echo 'class="active"';}?> href="a-propos.php?lang=<?php echo $urlLocale; ?>"><?php echo _("À propos"); ?></a>
+        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "liste-voiture.php"){echo 'class="active"';}?> href="liste-voiture.php?lang=<?php echo $urlLocale; ?>"><?php echo _("Voir les offres"); ?></a>
+        <a <?php $page = basename($_SERVER['PHP_SELF']); if ($page == "membre.php"){echo 'class="active"';}?> href="membre.php?lang=<?php echo $urlLocale; ?>"><?php echo _("Membre"); ?></a>
         <?php 
           $page = basename($_SERVER["PHP_SELF"]); 
           
           if (!empty($_SESSION)){ 
               if ($_SESSION["admin"]){
-                  echo '<a href="administration/index.php">';
+                  echo '<a href="administration/index.php?lang=';
+                  echo $urlLocale;
+                  echo'">';
                   echo _('Panneau Admin');
                   echo'</a>';
               }
