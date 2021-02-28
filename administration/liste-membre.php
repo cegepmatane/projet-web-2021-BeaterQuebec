@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require("langue.php");
+
 if (!empty($_SESSION)) {
     if ($_SESSION['admin']){
         
@@ -33,10 +35,10 @@ $listeMembre = MembreDAO::listerMembre();
 <body>
 	<header>
         <div class="header">
-            <a href="index.php" class="logo">Panneau Administration</a>
+            <a href="index.php?lang=<?php echo $urlLocale; ?>" class="logo"><?php echo _("Panneau Administration"); ?></a>
         </div>
         
-        <h1 class="titrePrincipalePanneauAdmin">Gestion des Membres</h1>
+        <h1 class="titrePrincipalePanneauAdmin"><?php echo _("Gestion des Membres"); ?></h1>
 	</header>
 
 	<section id="contenu" style="">
@@ -49,10 +51,10 @@ $listeMembre = MembreDAO::listerMembre();
                     <div class="recordPanneauAdministration">
                         <?php echo formater($membre->pseudonyme); ?> <?php echo formater($membre->nom); ?> <?php echo formater($membre->prenom); ?>
                         <a class="lienPanneauAdministration" style="float: right; margin-left:1rem;" href="modifier-membre.php?pseudonyme=<?php echo $membre->pseudonyme; ?>&email=<?php echo $membre->email; ?>" title="">
-                            Modifier
+                            <?php echo _("Modifier"); ?>
                         </a>
                         <a class="lienPanneauAdministration" style="float: right;" href="supprimer-membre.php?membre=<?php echo $membre->id; ?>" title="">
-                            Supprimer
+                            <?php echo _("Supprimer"); ?>
                         </a>
                     </div>		
 		<?php 		
@@ -61,6 +63,6 @@ $listeMembre = MembreDAO::listerMembre();
 		?>
 
 	</section>
-    <footer><span id="signature">Copyright © 2021 Les Beater du Québec. All Rights Reserved.</span></footer>
+    <footer><span id="signature"><?php echo _("Copyright © 2021 Les Beater du Québec. All Rights Reserved."); ?></span></footer>
 </body>
 </html>

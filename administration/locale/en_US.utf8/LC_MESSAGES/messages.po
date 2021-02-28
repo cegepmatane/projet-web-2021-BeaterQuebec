@@ -1,0 +1,53 @@
+msgid ""
+msgstr ""
+"Language: en_US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#Administration
+
+msgid "Panneau Administration"
+msgstr "Administration panel"
+
+msgid "Gestion des Voitures"
+msgstr "Car Management"
+
+msgid "Bienvenue sur le Panneau d'administration!"
+msgstr "Welcome to the Administration Panel!"
+
+msgid "Date : "
+msgstr "Date : "
+
+msgid "Statistiques des Visiteurs"
+msgstr "Visitor Statistics"
+
+msgid "Gestion des Membres"
+msgstr "Membership management"
+
+msgid "Citation de la journée : "
+msgstr "Quote of the day : "
+
+msgid "Langue"
+msgstr "Language"
+
+msgid "Nombre de Clics"
+msgstr "Number of Clicks"
+
+msgid "Ip de l'utilisateur"
+msgstr "User's ip"
+
+msgid "Modifier"
+msgstr "Edit"
+
+msgid "Supprimer"
+msgstr "Remove"
+
+msgid "Copyright © 2021 Les Beaters du Québec. All Rights Reserved."
+msgstr "Copyright © 2021 Beaters from Québec. All Rights Reserved."

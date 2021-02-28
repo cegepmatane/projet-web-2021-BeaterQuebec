@@ -12,7 +12,7 @@ require_once 'stripe/config.php';
 
 <!-- Buy button -->
 <div id="buynow">
-    <button class="boutonThemeMenu" id="payButton">Acheter</button>
+    <button class="boutonThemeMenu" id="payButton"><?php echo _('Acheter'); ?></button>
 </div>
 
 <script>

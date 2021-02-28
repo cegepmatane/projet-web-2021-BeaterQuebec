@@ -93,6 +93,10 @@ msgstr "Mileage : "
 msgid "Rechercher"
 msgstr "Search"
 
+msgid "Acheter"
+msgstr "Buy"
+
+
 #Détail voiture
 msgid "Description du véhicule : "
 msgstr "Description of the vehicle : "

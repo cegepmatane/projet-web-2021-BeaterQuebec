@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require("langue.php");
+
 if (!empty($_SESSION)) {
     if ($_SESSION['admin']){
         
@@ -37,7 +39,7 @@ $dateTime = date('Y/m/d G:i');
 <body>
 	<header>
 		<div class="header">
-            <a href="index.php" class="logo">Panneau Administration</a>
+            <a href="index.php" class="logo"><?php echo _("Panneau Administration"); ?></a>
         </div>
 	</header>
 
@@ -45,11 +47,11 @@ $dateTime = date('Y/m/d G:i');
         
         <div class="grillePanneauAdmin">
 
-            <a class="lienGrillePanneauAdministration" href="liste-voiture.php">
+            <a class="lienGrillePanneauAdministration" href="liste-voiture.php?lang=<?php echo $urlLocale; ?>">
                 <div style="grid-area: 1 / 1 / 2 / 2;">
                     <br>
                     <p class="texteVignettePanneauAdministration">
-                        Gestion des Voitures
+                        <?php echo _("Gestion des Voitures"); ?>
                     </p>
                     <br>
                     <img src="../images/gestion_voiture2.png" alt="Gestion des Voitures" style="width:100%; height:13rem;">
@@ -60,30 +62,30 @@ $dateTime = date('Y/m/d G:i');
                 <div>
                     <p class="texteVignettePanneauAdministration">
                         <br>
-                        Bienvenue sur le Panneau d'administration!
+                        <?php echo _("Bienvenue sur le Panneau d'administration!"); ?>
                         <br>
                         <br>
-                        Date : <?php echo $dateTime; ?>
+                        <?php echo _("Date : "); ?><?php echo $dateTime; ?>
                     </p>
                 </div>
             </div>
 
-            <a class="lienGrillePanneauAdministration" href="visiteurs.php">
+            <a class="lienGrillePanneauAdministration" href="visiteurs.php?lang=<?php echo $urlLocale; ?>">
                 <div style="grid-area: 1 / 3 / 2 / 4;">
                     <br>
                     <p class="texteVignettePanneauAdministration">
-                        Statistiques des Visiteurs
+                        <?php echo _("Statistiques des Visiteurs"); ?>
                     </p>
                     <br>
                     <img src="../images/statistiques.png" alt="Statistiques" style="width:100%; height:13rem;">
                 </div>
             </a>
 
-            <a class="lienGrillePanneauAdministration" href="liste-membre.php">
+            <a class="lienGrillePanneauAdministration" href="liste-membre.php?lang=<?php echo $urlLocale; ?>">
                 <div style="grid-area: 2 / 1 / 3 / 2;">
                     <br>
                     <p class="texteVignettePanneauAdministration">
-                        Gestion des Membres
+                        <?php echo _("Gestion des Membres"); ?>
                     </p>
                     <br>
                     <img src="../images/gestion_membre.png" alt="Gestion des Membres" style="width:100%; height:13rem;">
@@ -120,22 +122,22 @@ $dateTime = date('Y/m/d G:i');
                             }
                         } 
                     ?>
-                    Citation de la journée : <br><br><?php echo $pensee; ?>
+                    <?php echo _("Citation de la journée : "); ?><br><br><?php echo $pensee; ?>
                 </p>
             </div>
 
-            <a class="lienGrillePanneauAdministration" href="visiteurs.php">
+            <a class="lienGrillePanneauAdministration" href="visiteurs.php?lang=<?php echo $urlLocale; ?>">
                 <div style="grid-area: 2 / 3 / 3 / 4;">
                     <br>
                     <p class="texteVignettePanneauAdministration">
-                        Statistiques des Visiteurs
+                        <?php echo _("Statistiques des Visiteurs"); ?>
                     </p>
                     <br>
                     <table class="tableauContenuVisiteur">
                         <tr>
-                            <td>Langue</td>
-                            <td>Nombre de Clics</td>
-                            <td>Ip de l'utilisateur</td>
+                            <td><?php echo _("Langue"); ?></td>
+                            <td><?php echo _("Nombre de Clics"); ?></td>
+                            <td><?php echo _("Ip de l'utilisateur"); ?></td>
                         </tr>
                         <?php 	
                             $nbreRecord = 0;
@@ -161,6 +163,5 @@ $dateTime = date('Y/m/d G:i');
         </div>
 
 	</section>
-    <footer><span id="signature">Copyright © 2021 Les Beater du Québec. All Rights Reserved.</span></footer>
 </body>
 </html>
