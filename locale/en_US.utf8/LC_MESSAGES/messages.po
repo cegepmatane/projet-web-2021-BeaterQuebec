@@ -11,11 +11,52 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
 
+# Navigation
 msgid "Acceuil"
 msgstr "Home"
 
+msgid "À propos"
+msgstr "About"
+
+msgid "Voir les offres"
+msgstr "View offers"
+
+msgid "Membre"
+msgstr "Member"
+
+msgid "Panneau Admin"
+msgstr "Admin Panel"
+
+msgid "Rechercher.."
+msgstr "Search .."
+
+msgid "Copyright © 2021 Les Beaters du Québec. All Rights Reserved."
+msgstr "Copyright © 2021 Beaters from Québec. All Rights Reserved."
+
+msgid "Changer"
+msgstr "Change"
+# Index
 msgid "Bienvenue sur la boutique en ligne d'achat de voitures usagers #1 du Québec!"
 msgstr "Welcome to Quebec's # 1 car online store!"
 
 msgid "Les Beaters du Québec"
 msgstr "Beaters from Québec"
+
+# À propos
+msgid "Qui nous sommes et où sommes nous"
+msgstr "Who we are and where are we"
+
+msgid "Nous sommes des vendeurs de voitures usagers présentement localiser à Matane dans la province de Québec."
+msgstr "We are sellers of used cars currently located in Matane in the province of Quebec."
+
+msgid "Notre mission"
+msgstr "Our mission"
+
+msgid "Notre mission est de faire ne sorte que chaque beater trouve son propriétaire et le rende le plus heureux possible. De plus, nous voulons offrir le meilleur service de vente dans le domaine des voitures usagées."
+msgstr "Our mission is to make every beater find their owner and make them as happy as possible. In addition, we want to offer the best sales service in the field of used cars."
+
+msgid "Pour nous rejoindre"
+msgstr "To join us"
+
+msgid "Pour toutes questions ou problèmes veuillez nous contacter à l'adresse suivante : support@beaterquebec.shop."
+msgstr "For any questions or problems please contact us at the following address: support@beaterquebec.shop."
