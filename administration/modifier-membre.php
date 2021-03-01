@@ -44,7 +44,7 @@ $membre = MembreDAO::lireMembreParPseudonyme($pseudonyme);
 	<section id="contenu">
 		<header><h2><?php echo _("Modifier un membre"); ?></h2></header>
 		
-		<form action="traitement-modifier-membre-info.php?pseudonyme=<?php echo $membre->pseudonyme; ?>&email=<?php echo $membre->email; ?>" method="post" enctype="multipart/form-data">
+		<form action="traitement-modifier-membre-info.php?pseudonyme=<?php echo $membre->pseudonyme; ?>&email=<?php echo $membre->email; ?>&lang=<?php echo $urlLocale; ?>" method="post" enctype="multipart/form-data">
         
 			<div class="champs">
 				<label for="pseudonyme"><?php echo _("Pseudonyme"); ?> *</label>
@@ -65,7 +65,7 @@ $membre = MembreDAO::lireMembreParPseudonyme($pseudonyme);
 			</div>
 			<input type="submit" value="<?php echo _("Modifier les informations"); ?>">
     	</form>
-    <form action="traitement-modifier-membre-mdp.php?pseudonyme=<?php echo $membre->pseudonyme; ?>" method="post" enctype="multipart/form-data">
+    <form action="traitement-modifier-membre-mdp.php?pseudonyme=<?php echo $membre->pseudonyme; ?>&lang=<?php echo $urlLocale; ?>" method="post" enctype="multipart/form-data">
         <div class="champs">
             <label for="motDePasse"><?php echo _("Mot de passe"); ?> *</label>
             <input type="password" name="motDePasse" id="motDePasse" required/>			

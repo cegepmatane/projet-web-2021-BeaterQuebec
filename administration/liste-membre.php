@@ -53,7 +53,7 @@ $listeMembre = MembreDAO::listerMembre();
                         <a class="lienPanneauAdministration" style="float: right; margin-left:1rem;" href="modifier-membre.php?pseudonyme=<?php echo $membre->pseudonyme; ?>&email=<?php echo $membre->email; ?>&lang=<?php echo $urlLocale; ?>" title="">
                             <?php echo _("Modifier"); ?>
                         </a>
-                        <a class="lienPanneauAdministration" style="float: right;" href="supprimer-membre.php?membre=<?php echo $membre->id; ?>" title="">
+                        <a class="lienPanneauAdministration" style="float: right;" href="supprimer-membre.php?membre=<?php echo $membre->id; ?>&lang=<?php echo $urlLocale; ?>" title="">
                             <?php echo _("Supprimer"); ?>
                         </a>
                     </div>		

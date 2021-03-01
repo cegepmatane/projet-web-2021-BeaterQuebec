@@ -31,7 +31,8 @@ $reussiteModification = MembreDAO::modifierMotDePasseParPseudonyme($membreNouvea
 if($reussiteModification){
     echo '<script type="text/javascript">'; 
     echo 'alert("Le membre a été modifié dans la base de données");'; 
-    echo 'window.location.href = "liste-membre.php";';
+    echo 'window.location.href = "liste-membre.php?lang='.$_GET['lang'];
+    echo '";';
     echo '</script>';
 }
 

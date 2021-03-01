@@ -25,7 +25,8 @@ $noMembre = $_GET['membre'];
 if (empty($noMembre)){        
     echo '<script type="text/javascript">'; 
     echo 'alert("Erreur dans la supression!");'; 
-    echo 'window.location.href = "liste-voiture.php";';
+    echo 'window.location.href = "liste-membre.php?lang='.$_GET['lang'];
+    echo '";';
     echo '</script>';
 }else{
     $reussiteSupprimer = MembreDAO::supprimerMembre($noMembre);
@@ -33,7 +34,8 @@ if (empty($noMembre)){
     if($reussiteSupprimer){
         echo '<script type="text/javascript">'; 
         echo 'alert("Le membre a été supprimée de la base de données!");'; 
-        echo 'window.location.href = "liste-voiture.php";';
+        echo 'window.location.href = "liste-membre.php?lang='.$_GET['lang'];
+        echo '";';
         echo '</script>';
     }  
 }
