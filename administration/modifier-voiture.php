@@ -44,7 +44,7 @@ $voiture = VoitureDAO::lireVoiture($noVoiture);
 	<section id="contenu">
 		<header><h2><?php echo _("Modifier une voiture"); ?></h2></header>
 		
-		<form action="traitement-modifier-voiture.php" method="post" enctype="multipart/form-data">
+		<form action="traitement-modifier-voiture.php?lang=<?php echo $urlLocale; ?>" method="post" enctype="multipart/form-data">
 		
 			<div class="champs">
 				<label for="marque"><?php echo _("Marque"); ?> *</label>

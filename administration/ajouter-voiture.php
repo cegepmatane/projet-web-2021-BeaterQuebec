@@ -39,7 +39,7 @@ if (!empty($_SESSION)) {
 	<section id="contenu">
 		<header><h2><?php echo _("Ajouter une voiture"); ?></h2></header>
 		
-		<form action="traitement-ajouter-voiture.php" method="post" enctype="multipart/form-data">
+		<form action="traitement-ajouter-voiture.php?lang=<?php echo $urlLocale; ?>" method="post" enctype="multipart/form-data">
 		
 			<div class="champs">
 				<label for="marque"><?php echo _("Marque"); ?> *</label>

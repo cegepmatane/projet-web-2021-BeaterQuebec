@@ -25,7 +25,8 @@ $noVoiture = $_GET['voiture'];
 if (empty($noVoiture)){        
     echo '<script type="text/javascript">'; 
     echo 'alert("Erreur dans la supression!");'; 
-    echo 'window.location.href = "liste-voiture.php";';
+    echo 'window.location.href = "liste-voiture.php?lang='.$_GET['lang'];
+    echo '";';
     echo '</script>';
 }else{
     $reussiteSupprimer = VoitureDAO::supprimerVoiture($noVoiture);
@@ -33,7 +34,8 @@ if (empty($noVoiture)){
     if($reussiteSupprimer){
         echo '<script type="text/javascript">'; 
         echo 'alert("La Voiture a été supprimée de la base de données!");'; 
-        echo 'window.location.href = "liste-voiture.php";';
+        echo 'window.location.href = "liste-voiture.php?lang='.$_GET['lang'];
+        echo '";';
         echo '</script>';
     }  
 }

@@ -21,13 +21,13 @@ require "../configuration.php";
 require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 include_once "../modele/Voiture.php";
 
-$repertoireImage = $_SERVER['DOCUMENT_ROOT'] . "/ProjetWeb/images/";
+$repertoireImage = $_SERVER['DOCUMENT_ROOT'] . "ProjetWeb/images/";
 
-$fichierDestination = $repertoireImage . $_FILES['image']['name'];
+$fichierDestination = $repertoireImage . time().$_FILES['image']['name'];
 
 $fichierSource = $_FILES['image']['tmp_name'];
 
-$image =  $_FILES['image']['name'];
+$image =  time().$_FILES['image']['name'];
 
 if(move_uploaded_file($fichierSource,$fichierDestination))
 {?>
@@ -52,15 +52,16 @@ $voiture['image'] = $image;
 if (empty($voiture['marque']) || empty($voiture['modele']) || empty($voiture['annee']) || empty($voiture['prix']) || empty($voiture['kilometrages'])){        
     echo '<script type="text/javascript">'; 
     echo 'alert("Veuillez remplir tout les champs requis!");'; 
-    echo 'window.location.href = "ajouter-voiture.html";';
+    echo 'window.location.href = "liste-voiture.php?lang='.$_GET['lang'];
+    echo '";';
     echo '</script>';
 }else{
     $reussiteAjout = VoitureDAO::ajouterVoiture($voiture);
-    
     if($reussiteAjout){
         echo '<script type="text/javascript">'; 
         echo 'alert("La Voiture a été ajouté à la base de données!");'; 
-        echo 'window.location.href = "liste-voiture.php";';
+        echo 'window.location.href = "liste-voiture.php?lang='.$_GET['lang'];
+        echo '";';
         echo '</script>';
     }  
 }
