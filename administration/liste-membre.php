@@ -30,7 +30,7 @@ $listeMembre = MembreDAO::listerMembre();
 <head>
 	<link rel="stylesheet" type="text/css" href="../styles/style.css">
 	<meta charset="utf-8">
-	<title>Les Beaters du Québec</title>
+	<title><?php echo _("Les Beaters du Québec"); ?></title>
 </head>
 <body>
 	<header>
@@ -50,7 +50,7 @@ $listeMembre = MembreDAO::listerMembre();
 		?>
                     <div class="recordPanneauAdministration">
                         <?php echo formater($membre->pseudonyme); ?> <?php echo formater($membre->nom); ?> <?php echo formater($membre->prenom); ?>
-                        <a class="lienPanneauAdministration" style="float: right; margin-left:1rem;" href="modifier-membre.php?pseudonyme=<?php echo $membre->pseudonyme; ?>&email=<?php echo $membre->email; ?>" title="">
+                        <a class="lienPanneauAdministration" style="float: right; margin-left:1rem;" href="modifier-membre.php?pseudonyme=<?php echo $membre->pseudonyme; ?>&email=<?php echo $membre->email; ?>&lang=<?php echo $urlLocale; ?>" title="">
                             <?php echo _("Modifier"); ?>
                         </a>
                         <a class="lienPanneauAdministration" style="float: right;" href="supprimer-membre.php?membre=<?php echo $membre->id; ?>" title="">
@@ -63,6 +63,6 @@ $listeMembre = MembreDAO::listerMembre();
 		?>
 
 	</section>
-    <footer><span id="signature"><?php echo _("Copyright © 2021 Les Beater du Québec. All Rights Reserved."); ?></span></footer>
+    <footer><span id="signature"><?php echo _("Copyright © 2021 Les Beaters du Québec. All Rights Reserved."); ?></span></footer>
 </body>
 </html>

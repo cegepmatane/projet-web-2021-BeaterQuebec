@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require("langue.php");
+
 if (!empty($_SESSION)) {
     if ($_SESSION['admin']){
         
@@ -29,51 +31,50 @@ $membre = MembreDAO::lireMembreParPseudonyme($pseudonyme);
 <head>
 	<link rel="stylesheet" type="text/css" href="../styles/style.css">
 	<meta charset="utf-8">
-	<title>Les Beaters du Québec</title>
+	<title><?php echo _("Les Beaters du Québec"); ?></title>
 </head>
 <body>
 	<header>
         <div class="header">
-            <a href="index.php" class="logo">Panneau Administration</a>
+			<a href="index.php?lang=<?php echo $urlLocale; ?>" class="logo"><?php echo _("Panneau Administration"); ?></a>
         </div>
 		<nav></nav>
 	</header>
 	
 	<section id="contenu">
-		<header><h2>Modifier un membre</h2></header>
+		<header><h2><?php echo _("Modifier un membre"); ?></h2></header>
 		
 		<form action="traitement-modifier-membre-info.php?pseudonyme=<?php echo $membre->pseudonyme; ?>&email=<?php echo $membre->email; ?>" method="post" enctype="multipart/form-data">
         
 			<div class="champs">
-				<label for="pseudonyme">Pseudonyme *</label>
+				<label for="pseudonyme"><?php echo _("Pseudonyme"); ?> *</label>
 				<input type="text" name="pseudonyme" id="pseudonyme" value="<?php echo $membre->pseudonyme ?>" required/>			
 			</div>
 			<div class="champs">
-				<label for="email">Addesse courriel *</label>
+				<label for="email"><?php echo _("Addesse courriel"); ?> *</label>
 				<input type="email" name="email" id="email" value="<?php echo $membre->email ?>" required/>			
 			</div>
 			<div class="champs">
-				<label for="nom">Nom</label>
+				<label for="nom"><?php echo _("Nom"); ?></label>
 				<input type="text" name="nom" id="nom" value="<?php echo $membre->nom ?>"/>			
 			</div>
 			
 			<div class="champs">
-				<label for="prenom">Prenom</label>
+				<label for="prenom"><?php echo _("Prenom"); ?></label>
 				<input type="text" name="prenom" id="prenom" value="<?php echo $membre->prenom ?>"/>			
 			</div>
-			<input type="submit" value="Modifier les informations">
+			<input type="submit" value="<?php echo _("Modifier les informations"); ?>">
     	</form>
     <form action="traitement-modifier-membre-mdp.php?pseudonyme=<?php echo $membre->pseudonyme; ?>" method="post" enctype="multipart/form-data">
         <div class="champs">
-            <label for="motDePasse">Mot de passe *</label>
+            <label for="motDePasse"><?php echo _("Mot de passe"); ?> *</label>
             <input type="password" name="motDePasse" id="motDePasse" required/>			
         </div>
-        <input type="submit" value="Modifier le mot de passe">
+        <input type="submit" value="<?php echo _("Modifier le mot de passe"); ?>">
     </form>
 		</form>
 	
 	</section>
-	
-	<footer><span id="signature">Copyright © 2021 Les Beater du Québec. All Rights Reserved.</span></footer>
+	<footer><span id="signature"><?php echo _("Copyright © 2021 Les Beaters du Québec. All Rights Reserved."); ?></span></footer>
 </body>
 </html>

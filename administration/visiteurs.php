@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require("langue.php");
+
 if (!empty($_SESSION)) {
     if ($_SESSION['admin']){
         
@@ -37,25 +39,25 @@ $nbreJourSamedi = 0;
 <head>
 	<link rel="stylesheet" type="text/css" href="../styles/style.css">
 	<meta charset="utf-8">
-    <title>Les Beaters du Québec</title>
+    <title><?php echo _("Les Beaters du Québec"); ?></title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 <body>
 	<header>
         <div class="header">
-            <a href="index.php" class="logo">Panneau Administration</a>
+        <a href="index.php?lang=<?php echo $urlLocale; ?>" class="logo"><?php echo _("Panneau Administration"); ?></a>
         </div>
         
-        <h1 class="titrePrincipalePanneauAdmin">Statistiques des Visiteurs</h1>
+        <h1 class="titrePrincipalePanneauAdmin"><?php echo _("Statistiques des Visiteurs"); ?></h1>
 	</header>
 
 	<section id="contenu">
 
         <table class="tableauContenuVisiteur">
             <tr>
-                <td>Journée</td>
-                <td>Nombre de Clics</td>
-                <td>Ip de l'utilisateur</td>
+                <td><?php echo _("Journée"); ?></td>
+                <td><?php echo _("Nombre de Clics"); ?></td>
+                <td><?php echo _("Ip de l'utilisateur"); ?></td>
             </tr>
             <?php 	
                 foreach($statistiqueVisiteursParJour as $statistiques)
@@ -104,9 +106,9 @@ $nbreJourSamedi = 0;
 
         <table class="tableauContenuVisiteur">
             <tr>
-                <td>Langue</td>
-                <td>Nombre de Clics</td>
-                <td>Ip de l'utilisateur</td>
+                <td><?php echo _("Langue"); ?></td>
+                <td><?php echo _("Nombre de Clics"); ?></td>
+                <td><?php echo _("Ip de l'utilisateur"); ?></td>
             </tr>
             <?php 	
                 foreach($statistiqueVisiteursParLangue as $statistique)
@@ -128,7 +130,7 @@ $nbreJourSamedi = 0;
 
         <script>
             var donnees = [<?php echo $nbreJourDimanche; ?>, <?php echo $nbreJourLundi; ?>, <?php echo $nbreJourMardi; ?>, <?php echo $nbreJourMercredi; ?>, <?php echo $nbreJourJeudi; ?>, <?php echo $nbreJourVendredi; ?>, <?php echo $nbreJourSamedi; ?>]; // Tableau des données
-            var etiquettes = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'] // Tableau des étiquettes
+            var etiquettes = ['<?php echo _("Dimanche"); ?>', '<?php echo _("Lundi"); ?>', '<?php echo _("Mardi"); ?>', '<?php echo _("Mercredi"); ?>', '<?php echo _("Jeudi"); ?>', '<?php echo _("Vendredi"); ?>', '<?php echo _("Samedi"); ?>'] // Tableau des étiquettes
 
             var cible = document.getElementById('graphique').getContext('2d');
             var graphiqueLigne = new Chart(cible, {
@@ -137,7 +139,7 @@ $nbreJourSamedi = 0;
                 data: {
                     labels: etiquettes,
                     datasets: [{
-                        label: 'Visite selon les Jours',
+                        label: '<?php echo _("Visite selon les Jours"); ?>',
                         backgroundColor: '#1e90ff',
                         borderColor: 'black',
                         data: donnees
@@ -149,6 +151,6 @@ $nbreJourSamedi = 0;
         </script>
 
     </section>
-    <footer><span id="signature">Copyright © 2021 Les Beater du Québec. All Rights Reserved.</span></footer>
+    <footer><span id="signature"><?php echo _("Copyright © 2021 Les Beater du Québec. All Rights Reserved."); ?></span></footer>
 </body>
 </html>

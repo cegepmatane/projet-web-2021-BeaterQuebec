@@ -33,13 +33,13 @@ $dateTime = date('Y/m/d G:i');
 <head>
 	<link rel="stylesheet" type="text/css" href="../styles/style.css">
 	<meta charset="utf-8">
-	<title>Les Beaters du Québec</title>
+	<title><?php echo _("Les Beaters du Québec"); ?></title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 <body>
 	<header>
 		<div class="header">
-            <a href="index.php" class="logo"><?php echo _("Panneau Administration"); ?></a>
+            <a href="index.php?lang=<?php echo $urlLocale; ?>" class="logo"><?php echo _("Panneau Administration"); ?></a>
         </div>
 	</header>
 

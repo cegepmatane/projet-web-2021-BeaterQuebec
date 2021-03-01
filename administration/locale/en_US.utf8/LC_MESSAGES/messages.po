@@ -51,3 +51,85 @@ msgstr "Remove"
 
 msgid "Copyright © 2021 Les Beaters du Québec. All Rights Reserved."
 msgstr "Copyright © 2021 Beaters from Québec. All Rights Reserved."
+
+msgid "Les Beaters du Québec"
+msgstr "Beaters from Québec"
+
+msgid "Ajouter une Voiture"
+msgstr "Add a Car"
+
+msgid "Journée"
+msgstr "Day"
+
+msgid "Visite selon les Jours"
+msgstr "Visit according to the Days"
+
+msgid "Lundi"
+msgstr "Monday"
+
+msgid "Mardi"
+msgstr "Tuesday"
+
+msgid "Mercredi"
+msgstr "Wednesday"
+
+msgid "Jeudi"
+msgstr "Thursday"
+
+msgid "Vendredi"
+msgstr "Friday"
+
+msgid "Samedi"
+msgstr "Saturday"
+
+msgid "Dimanche"
+msgstr "Sunday"
+
+msgid "Modifier un membre"
+msgstr "Modify a member"
+
+msgid "Addesse courriel"
+msgstr "Email address"
+
+msgid "Nom"
+msgstr "Last name"
+
+msgid "Prenom"
+msgstr "First name"
+
+msgid "Modifier les informations"
+msgstr "Edit information"
+
+msgid "Modifier le mot de passe"
+msgstr "Change the password"
+
+msgid "Modifier une voiture"
+msgstr "Modify a car"
+
+msgid "Marque"
+msgstr "Brand"
+
+msgid "Modèle"
+msgstr "Model"
+
+msgid "Année de sortie"
+msgstr "Release year"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Prix"
+msgstr "Price"
+
+msgid "Kilométrages"
+msgstr "Mileage"
+
+msgid "Image"
+msgstr "Picture"
+
+msgid "Enregistrer"
+msgstr "Save"
+
+msgid "Ajouter une voiture"
+msgstr "Add a car"
+
