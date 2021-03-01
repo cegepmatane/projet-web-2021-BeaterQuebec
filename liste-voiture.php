@@ -12,7 +12,7 @@ include "getVisiteurInfos.php";
 
 <div class="listeVoitureContenant">
 
-<form class="formRechercheAvance" action="resultatRechercheAvance.php" method="post" enctype="multipart/form-data">
+<form class="formRechercheAvance" action="resultatRechercheAvance.php?lang=<?php echo $urlLocale; ?>" method="post" enctype="multipart/form-data">
 		
     <div class="champs">
         <label for="marque"><?php echo _('Marque'); ?></label>

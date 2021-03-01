@@ -151,6 +151,6 @@ $nbreJourSamedi = 0;
         </script>
 
     </section>
-    <footer><span id="signature"><?php echo _("Copyright © 2021 Les Beater du Québec. All Rights Reserved."); ?></span></footer>
+    <footer><span id="signature"><?php echo _("Copyright © 2021 Les Beaters du Québec. All Rights Reserved."); ?></span></footer>
 </body>
 </html>

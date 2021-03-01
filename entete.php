@@ -52,7 +52,7 @@ textdomain($domain);
               }
           }
         ?>
-        <form action="resultatRechercheRapide.php" class="formRechercheRapide" method="post" enctype="multipart/form-data">
+        <form action="resultatRechercheRapide.php?lang=<?php echo $urlLocale; ?>" class="formRechercheRapide" method="post" enctype="multipart/form-data">
             <input class="inputRechercheRapide" type="text" name="recherche" id="recherche" placeholder="<?php echo _("Rechercher.."); ?>"/>	
         </form>
       </div>

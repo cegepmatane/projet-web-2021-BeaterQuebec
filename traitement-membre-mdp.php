@@ -16,7 +16,8 @@ $hasedPwdCheck = password_verify(formater($membre['ancienMotDePasse']), $_SESSIO
 if(!$hasedPwdCheck){
     echo '<script type="text/javascript">'; 
     echo 'alert("Mot de passe incorrect!");'; 
-    echo 'window.location.href = "membre.php";';
+    echo 'window.location.href = "membre.php?lang='.$_GET['lang'];
+    echo '";';
     echo '</script>';
 }
 else{
@@ -26,7 +27,7 @@ else{
     
     $_SESSION["motDePasse"] = $membreNouveauMotDePasse;
 
-    header("Location: membre.php");
+    header("Location: membre.php?lang=".$_GET['lang']);
     die();	
 }
 

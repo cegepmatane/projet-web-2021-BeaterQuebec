@@ -27,14 +27,16 @@ if(!$estConnecte && isset($_POST["action-connexion"])){
         $_SESSION["motDePasse"] = formater($membre->motDePasse);
         
         echo '<script type="text/javascript">'; 
-        echo 'window.location.href = "membre.php";';
+        echo 'window.location.href = "membre.php?lang='.$_GET['lang'];
+        echo '";';
         echo '</script>';
     }
     else {
         //$membre = MembreDAO::lireMembreParPseudonyme($_SESSION["pseudonyme"]);
         echo '<script type="text/javascript">'; 
         echo 'alert("Erreur de connexion, veuillez réessayer!");'; 
-        echo 'window.location.href = "membre.php";';
+        echo 'window.location.href = "membre.php?lang='.$_GET['lang'];
+        echo '";';
         echo '</script>';
     }
 }

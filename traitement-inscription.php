@@ -31,7 +31,8 @@ $membre = filter_input_array(INPUT_POST, $filtresMembre);
 if (strcmp($membre['motDePasse'],$membre['confirmationMotDePasse'])){
     echo '<script type="text/javascript">'; 
     echo 'alert("Les mots de passe ne correspondent pas!");'; 
-    echo 'window.location.href = "inscription.php";';
+    echo 'window.location.href = "inscription.php?lang='.$_GET['lang'];
+    echo '";';
     echo '</script>';
 }
 
@@ -42,7 +43,8 @@ $checkPseudonyme = MembreDAO::lireMembreParPseudonyme($membre["pseudonyme"]);
 if (isset($checkPseudonyme->id)){
     echo '<script type="text/javascript">'; 
     echo 'alert("Ce nom d\'utilisateur éxiste déjà!");'; 
-    echo 'window.location.href = "inscription.php";';
+    echo 'window.location.href = "inscription.php?lang='.$_GET['lang'];
+    echo '";';
     echo '</script>';
 }else{
     $checkCourriel = MembreDAO::lireMembreParCourriel($membre["email"]);
@@ -50,7 +52,8 @@ if (isset($checkPseudonyme->id)){
     if (isset($checkCourriel->id)){
         echo '<script type="text/javascript">'; 
         echo 'alert("Cette addresse de courriel éxiste déjà!");'; 
-        echo 'window.location.href = "inscription.php";';
+        echo 'window.location.href = "inscription.php?lang='.$_GET['lang'];
+        echo '";';
         echo '</script>';
     }else{
         $reussiteAjout = MembreDAO::ajouterMembre($membre);
@@ -60,7 +63,7 @@ if (isset($checkPseudonyme->id)){
             $Mail = urldecode($membre["email"]);
             
             mail($Mail,"Inscription à les Beaters du Québec", "Merci de votre inscription. Si ce n'était pas vous ou si vous rencontrez un problème quelconque veuillez nous contacter à l'adresse suivante : support@beaterquebec.shop.");
-            header("Location: membre.php");
+            header("Location: membre.php?lang=".$_GET['lang']);
             die();	
         }
     }

@@ -18,7 +18,8 @@ if (strcmp($membre['pseudonyme'],$_SESSION['pseudonyme'])){
     {
         echo '<script type="text/javascript">'; 
         echo 'alert("Ce nom d\'utilisateur éxiste déjà!");'; 
-        echo 'window.location.href = "membre.php";';
+        echo 'window.location.href = "membre.php?lang='.$_GET['lang'];
+        echo '";';
         echo '</script>';
     } 
 }
@@ -28,7 +29,8 @@ if (strcmp($membre['email'],$_SESSION['email'])){
     {
         echo '<script type="text/javascript">'; 
         echo 'alert("Cette addresse de courriel éxiste déjà!");'; 
-        echo 'window.location.href = "membre.php";';
+        echo 'window.location.href = "membre.php?lang='.$_GET['lang'];
+        echo '";';
         echo '</script>';
     } 
 }
@@ -40,7 +42,7 @@ if($reussiteModification)
     $_SESSION["nom"] = formater($membre["nom"]);
     $_SESSION["prenom"] = formater($membre["prenom"]);
     $_SESSION["email"] = formater($membre["email"]);
-    header("Location: membre.php");
+    header("Location: membre.php?lang=".$_GET['lang']);
     die();	
 }
     

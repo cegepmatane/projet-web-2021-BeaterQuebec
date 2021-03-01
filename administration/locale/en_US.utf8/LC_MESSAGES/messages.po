@@ -97,6 +97,12 @@ msgstr "Last name"
 msgid "Prenom"
 msgstr "First name"
 
+msgid "Pseudonyme"
+msgstr "Username"
+
+msgid "Mot de passe"
+msgstr "Password"
+
 msgid "Modifier les informations"
 msgstr "Edit information"
 

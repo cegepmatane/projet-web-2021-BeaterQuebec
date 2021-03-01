@@ -1,9 +1,9 @@
 
-<a style="float:right;" class="boutonThemeMenu" href="traitement-deconnection.php"><?php echo _("Se déconnecter"); ?></a>
+<a style="float:right;" class="boutonThemeMenu" href="traitement-deconnection.php?lang=<?php echo $urlLocale; ?>"><?php echo _("Se déconnecter"); ?></a>
 <header><h2><?php echo _("Profile"); ?></h2></header>
 <section id="espace-membre">
     <p><?php echo _("Bienvenue"); ?>, <?php echo $_SESSION['pseudonyme']; ?>!</p>
-    <form action="traitement-membre-info.php" method="post" enctype="multipart/form-data">
+    <form action="traitement-membre-info.php?lang=<?php echo $urlLocale; ?>" method="post" enctype="multipart/form-data">
         
         <div class="champs">
             <label for="pseudonyme"><?php echo _("Pseudonyme"); ?> *</label>
@@ -25,7 +25,7 @@
         <input type="submit" value="<?php echo _("Modifier vos informations"); ?>">
     </form>
 
-    <form action="traitement-membre-mdp.php" method="post" enctype="multipart/form-data">
+    <form action="traitement-membre-mdp.php?lang=<?php echo $urlLocale; ?>" method="post" enctype="multipart/form-data">
         <div class="champs">
             <label for="ancienMotDePasse"><?php echo _("Ancien mot de passe"); ?> *</label>
             <input type="password" name="ancienMotDePasse" id="ancienMotDePasse" required/>			

@@ -1,7 +1,7 @@
 <header><h2><?php echo _('Connexion'); ?></h2></header>
 
 <section id="authentification">
-    <form action="membre.php" method="POST">
+    <form action="membre.php?lang=<?php echo $urlLocale; ?>" method="POST">
         <div>
             <label><?php echo _('Pseudonyme'); ?></label>
             <input type="text" name="pseudonyme"/>
