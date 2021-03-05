@@ -51,7 +51,7 @@ var stripe = Stripe('<?php echo STRIPE_PUBLISHABLE_KEY; ?>');
 
 buyBtn.addEventListener("click", function (evt) {
     buyBtn.disabled = true;
-    buyBtn.textContent = 'Please wait...';
+    buyBtn.textContent = 'Veuillez patientez...';
     
     createCheckoutSession().then(function (data) {
         if(data.sessionId){
