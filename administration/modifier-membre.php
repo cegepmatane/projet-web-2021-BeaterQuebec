@@ -47,29 +47,29 @@ $membre = MembreDAO::lireMembreParPseudonyme($pseudonyme);
         
         <p id="txtErreur"></p>
 		
-		<form action="traitement-modifier-membre-info.php?pseudonyme=<?php echo $membre->pseudonyme; ?>&email=<?php echo $membre->email; ?>&lang=<?php echo $urlLocale; ?>" method="post" enctype="multipart/form-data">
+		<form action="traitement-modifier-membre-info.php?pseudonyme=<?php echo formater($membre->pseudonyme); ?>&email=<?php echo formater($membre->email); ?>&lang=<?php echo formater($urlLocale); ?>" method="post" enctype="multipart/form-data">
         
 			<div class="champs">
 				<label for="pseudonyme"><?php echo _("Pseudonyme"); ?> *</label>
-				<input type="text" name="pseudonyme" id="pseudonyme" onkeyup="showErreurPseudo(this.value, '<?php echo $_SESSION['pseudonyme']; ?>')" value="<?php echo $membre->pseudonyme ?>" required/>			
+				<input type="text" name="pseudonyme" id="pseudonyme" onkeyup="showErreurPseudo(this.value, '<?php echo formater($membre->pseudonyme); ?>')" value="<?php echo formater($membre->pseudonyme); ?>" required/>			
 			</div>
 			<div class="champs">
 				<label for="email"><?php echo _("Addesse courriel"); ?> *</label>
-				<input type="email" name="email" id="email" onkeyup="showErreurCourriel(this.value, '<?php echo $_SESSION['email']; ?>')" value="<?php echo $membre->email ?>" required/>			
+				<input type="email" name="email" id="email" onkeyup="showErreurCourriel(this.value, '<?php echo formater($membre->email); ?>')" value="<?php echo formater($membre->email); ?>" required/>			
 			</div>
 			<div class="champs">
 				<label for="nom"><?php echo _("Nom"); ?></label>
-				<input type="text" name="nom" id="nom" value="<?php echo $membre->nom ?>"/>			
+				<input type="text" name="nom" id="nom" value="<?php echo formater($membre->nom) ?>"/>			
 			</div>
 			
 			<div class="champs">
 				<label for="prenom"><?php echo _("Prenom"); ?></label>
-				<input type="text" name="prenom" id="prenom" value="<?php echo $membre->prenom ?>"/>			
+				<input type="text" name="prenom" id="prenom" value="<?php echo formater($membre->prenom) ?>"/>			
 			</div>
 			<input id="inputModifierInfos" type="submit" value="<?php echo _("Modifier les informations"); ?>">
     	</form>
         
-        <form action="traitement-modifier-membre-mdp.php?pseudonyme=<?php echo $membre->pseudonyme; ?>&lang=<?php echo $urlLocale; ?>" method="post" enctype="multipart/form-data">
+        <form action="traitement-modifier-membre-mdp.php?pseudonyme=<?php echo formater($membre->pseudonyme); ?>&lang=<?php echo $urlLocale; ?>" method="post" enctype="multipart/form-data">
             <div class="champs">
                 <label for="motDePasse"><?php echo _("Mot de passe"); ?> *</label>
                 <input type="password" name="motDePasse" id="motDePasse" required/>			

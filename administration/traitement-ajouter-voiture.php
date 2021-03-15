@@ -21,14 +21,17 @@ require "../configuration.php";
 require CHEMIN_ACCESSEUR . "VoitureDAO.php";
 include_once "../modele/Voiture.php";
 
-$repertoireImage = $_SERVER['DOCUMENT_ROOT'] . "ProjetWeb/images/";
+$repertoireImage = $_SERVER['DOCUMENT_ROOT'] . "images/";
 
 $fichierDestination = $repertoireImage . time().$_FILES['image']['name'];
 
 $fichierSource = $_FILES['image']['tmp_name'];
 
-$image =  time().$_FILES['image']['name'];
-
+if (empty($_FILES['image']['name'])){
+    $image = "";
+}else{
+    $image =   time(). $_FILES['image']['name'];
+}
 if(move_uploaded_file($fichierSource,$fichierDestination))
 {?>
 	<!--Votre envoi de fichier a bien fonctionné

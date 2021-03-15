@@ -31,11 +31,15 @@ class MembreDAO extends AccesBaseDeDonneesMembres{
         $requeteValiderConnexion->bindParam(':pseudonyme', $pseudonyme, PDO::PARAM_STR);
         $requeteValiderConnexion->bindParam(':email', $email, PDO::PARAM_STR);
         $requeteValiderConnexion->execute();
-
+        
         $resultatRequete = $requeteValiderConnexion->fetch();
 
-        $hasedPwdCheck = password_verify(formater($membre->motDePasse), $resultatRequete['motDePasse']);
-
+        $hasedPwdCheck = false;
+        if($resultatRequete)
+        {
+            $hasedPwdCheck = password_verify(formater($membre->motDePasse), $resultatRequete['motDePasse']);
+        }
+        
         if ($hasedPwdCheck){
             return new Membre($resultatRequete);
         }else{
@@ -120,7 +124,28 @@ class MembreDAO extends AccesBaseDeDonneesMembres{
         $reussiteModification = $requeteModifierMembre->execute();
         return $reussiteModification;
     }
-    
+    public static function modifierMembreInfoAdmin($membre,$pseudonymeMembre){
+        
+        MembreDAO::initialiser();
+        
+        $SQL_MODIFIER_MEMBRE = "UPDATE membre SET pseudonyme = ".":pseudonyme".", nom = ".":nom".", prenom = ".":prenom".", email = ".":email"." WHERE pseudonyme = :pseudonymeMembre";
+
+        $requeteModifierMembre = MembreDAO::$basededonnees->prepare($SQL_MODIFIER_MEMBRE);
+        
+        $pseudonyme = urldecode($membre["pseudonyme"]);
+        $nom = urldecode($membre["nom"]);
+        $prenom = urldecode($membre["prenom"]);
+        $email = urldecode($membre["email"]);
+
+        $requeteModifierMembre->bindParam(':pseudonyme', $pseudonyme, PDO::PARAM_STR);
+        $requeteModifierMembre->bindParam(':nom', $nom, PDO::PARAM_STR);
+        $requeteModifierMembre->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+        $requeteModifierMembre->bindParam(':email', $email, PDO::PARAM_STR);
+        $requeteModifierMembre->bindParam(':pseudonymeMembre', $pseudonymeMembre, PDO::PARAM_STR);
+        
+        $reussiteModification = $requeteModifierMembre->execute();
+        return $reussiteModification;
+    }
     public static function modifierMotDePasse($membreNouveauMotDePasse){
         
         MembreDAO::initialiser();

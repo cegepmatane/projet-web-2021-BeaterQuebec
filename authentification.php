@@ -12,6 +12,6 @@
         </div>
         <input type="submit" name="action-connexion" value="<?php echo _('Connexion'); ?>"/>
         <br/>
-        <a class="boutonThemeMenu" href="inscription.php" id="btnInscription"><?php echo _('Pas de compte? Inscrivez-vous ici!'); ?></a>
+        <a class="boutonThemeMenu" href="inscription.php?lang=<?php echo $urlLocale; ?>" id="btnInscription"><?php echo _('Pas de compte? Inscrivez-vous ici!'); ?></a>
     </form>
 </section>

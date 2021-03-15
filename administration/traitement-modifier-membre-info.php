@@ -61,7 +61,7 @@ if(strcmp($_GET['email'],$membre["email"]))
         echo '</script>';
     } 
 }
-$reussiteModification = MembreDAO::modifierMembreInfo($membre);
+$reussiteModification = MembreDAO::modifierMembreInfoAdmin($membre,$_GET['pseudonyme']);
 if($reussiteModification){
     echo '<script type="text/javascript">'; 
     echo 'alert("Le membre a été modifié dans la base de données");'; 

@@ -1,5 +1,10 @@
 # projet-web-2021-BeaterQuebec
-Site:
+## Vidéo de présentation
+
+https://youtu.be/tgR_QsbNL04
+
+## Site:
+
 http://www.beaterquebec.shop/
 
 Équipe : 
